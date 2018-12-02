@@ -485,5 +485,55 @@ input[type=checkbox].toggle-switch::after {
    
 }
 
+input[type=checkbox].toggle-switch:checked::after {
+    left: 5.8em;
+    content: "Login" ;
+}
+/*Cambiado*/
+input[type=checkbox]#toggleswitch {
+
+    appearance: none;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    width: 170px;
+    height: 2.38em;
+    border-radius: 1em;
+    background-color:#b7b7bb ;
+    outline: 0;
+    cursor: pointer;
+    transition: background-color 0.05s ease-in-out;
+    position: relative;
+   
+}
+
+input[type=checkbox]#toggleswitch:checked {
+    background-color: #b7b7bb;
+
+}
+
+input[type=checkbox]#toggleswitch::after {
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    content: '';
+    width: 7em;
+    height: 2.38em;
+    background-color: #30499B;
+    content: "Registro";
+    
+    border-radius: 1em;
+    position: absolute;
+    transform: scale(1.05);
+    left: 0;
+    transition: left 0.09s ease-in-out;
+   
+}
+
+input[type=checkbox]#toggleswitch:checked::after {
+    left: 5.8em;
+    content: "Login" ;
+}
+
 
 }
