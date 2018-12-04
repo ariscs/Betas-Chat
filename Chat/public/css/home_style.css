@@ -5,225 +5,211 @@
 }
 
 /* Version Escritorio */
-@media (min-width: 768px){
-   
-.container{
-    width: 100%;
-    height: 100%;
-    background-color: #252621;
-    position: absolute;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-.top_banner{
-    background-color: #eee;
-    width: 20%;
-    height: 80%;
-     border-radius: 10px;
-     margin-right:30px; 
-      box-shadow: 3px 2px grey;
-}
-.image{
-    width: 0px;
-    height: 0px;
-}
+@media (min-width: 768px){   
+    .container{
+        width: 100%;
+        height: 100%;
+        background-color: #252621;
+        position: absolute;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .top_banner{
+        background-color: #eee;
+        width: 20%;
+        height: 80%;
+        border-radius: 10px;
+        margin-right:30px; 
+        box-shadow: 3px 2px grey;
+    }
+    .image{
+        width: 0px;
+        height: 0px;
+    }
 
-.main_container{
-    width: 65%;
-    height: 80%;
-    background-color: yellow;
-    border-radius: 10px;
-}
-.search{
-    background-color: white;
-    width: 100%;
-    height: 9%;
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
-}
+    .main_container{
+        width: 65%;
+        height: 80%;
+        background-color: yellow;
+        border-radius: 10px;
+    }
+    .search{
+        background-color: white;
+        width: 100%;
+        height: 9%;
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+    }
 
+        /*Index o login y registro*/
 
-
-    /*Index o login y registro*/
-
-#Principal{
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-image: linear-gradient( rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3) ), url('../img/1.jpg') ;
-      
-    background-repeat: no-repeat;
-  
-
-   
-}
-#central{
-    width: 350px;
-    height: 550px;
-    background-color: #FAFAFA;
-    display: flex;  
-    justify-content: center;
-    flex-wrap: wrap;
-    border-radius: 18px;
-     box-shadow: 2px 3px #8888;
-     
-}
-#arriba{
+    #Principal{
+        width: 100%;
+        height: 100%;
+        position: absolute;
         
-    margin-top:40px;
-    height: 1%;
-    width: 20%;
-    display: flex;
-    
-    align-items: center;
-    justify-content: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-image: linear-gradient( rgba(0, 0, 0, 0), rgba(0, 0, 0, 0) ), url('../img/1.jpg') ;
+        background-repeat: no-repeat;
+    }
 
-}
-#arriba>img{
-    width: 200px;
-    height: 200px;
-}
-#titulo{
-    margin-top: 10%;
-    font-family: 'Roboto', sans-serif;
-}
-#enmedio{
-    
-margin-top: 10%;
-    height: 10%;
-    width: 100%;
-    align-items: center;
-    justify-content: center;
-    display: flex;
-}
-#abajo{
-    margin-bottom: 30%;
-    height: 30%;
-    width: 70%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-wrap: wrap;
-    text-align: center;
-    font-size: 15px;
-}
+    #central{
+        width: 350px;
+        height: 550px;
+        background-color: #FAFAFA;
+        display: flex;  
+        justify-content: center;
+        flex-wrap: wrap;
+        border-radius: 18px;
+        box-shadow: 2px 3px #8888;
+    }
 
+    #arriba{ 
+        margin-top:40px;
+        height: 1%;
+        width: 20%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
 
-.mandar{
-    margin-top: 10%;
-    height: 35px;
-    width: 43%;
-    background-color:#30499B;
-    border-radius: 10px;
-    font-size: 15px;
-    color: white;
-    cursor: pointer;
-}
-.inputDatos{
-    margin-bottom:30px;
-    height: 30px;
-    width: 100%;
-    border:none;
-    outline: none;
-    background-color: transparent;
-    border-bottom: 1px solid black;
-    font-size: 18px;
-    
-}
-input[type=checkbox].toggle-switch {
+    #arriba>img{
+        width: 200px;
+        height: 200px;
+    }
 
-    appearance: none;
-    -moz-appearance: none;
-    -webkit-appearance: none;
-    width: 170px;
-    height: 2.38em;
-    border-radius: 1em;
-    background-color:#b7b7bb ;
-    outline: 0;
-    cursor: pointer;
-    transition: background-color 0.05s ease-in-out;
-    position: relative;
-   
-}
+    #titulo{
+        margin-top: 10%;
+        font-family: 'Roboto', sans-serif;
+    }
 
-input[type=checkbox].toggle-switch:checked {
-    background-color: #b7b7bb;
+    #enmedio{    
+        margin-top: 10%;
+        height: 10%;
+        width: 100%;
+        align-items: center;
+        justify-content: center;
+        display: flex;
+    }
 
-}
+    #abajo{
+        margin-bottom: 30%;
+        height: 30%;
+        width: 70%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-wrap: wrap;
+        text-align: center;
+        font-size: 15px;
+    }
 
-input[type=checkbox].toggle-switch::after {
-    color: white;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    content: '';
-    width: 7em;
-    height: 2.38em;
-    background-color: #30499B;
-    content: "Registro";
-    
-    border-radius: 1em;
-    position: absolute;
-    transform: scale(1.05);
-    left: 0;
-    transition: left 0.09s ease-in-out;
-   
-}
+    .mandar{
+        margin-top: 10%;
+        height: 35px;
+        width: 43%;
+        background-color:#30499B;
+        border-radius: 10px;
+        font-size: 15px;
+        color: white;
+        cursor: pointer;
+    }
 
-input[type=checkbox].toggle-switch:checked::after {
-    left: 5.8em;
-    content: "Login" ;
-}
-/*Cambiado*/
-input[type=checkbox]#toggleswitch {
+    .inputDatos{
+        margin-bottom:30px;
+        height: 30px;
+        width: 100%;
+        border:none;
+        outline: none;
+        background-color: transparent;
+        border-bottom: 1px solid black;
+        font-size: 18px;    
+    }
 
-    appearance: none;
-    -moz-appearance: none;
-    -webkit-appearance: none;
-    width: 170px;
-    height: 2.38em;
-    border-radius: 1em;
-    background-color:#b7b7bb ;
-    outline: 0;
-    cursor: pointer;
-    transition: background-color 0.05s ease-in-out;
-    position: relative;
-   
-}
+    input[type=checkbox].toggle-switch {
+        appearance: none;
+        -moz-appearance: none;
+        -webkit-appearance: none;
+        width: 170px;
+        height: 2.38em;
+        border-radius: 1em;
+        background-color:#b7b7bb ;
+        outline: 0;
+        cursor: pointer;
+        transition: background-color 0.05s ease-in-out;
+        position: relative;
+    }
 
-input[type=checkbox]#toggleswitch:checked {
-    background-color: #b7b7bb;
+    input[type=checkbox].toggle-switch:checked {
+        background-color: #b7b7bb;
+    }
 
-}
+    input[type=checkbox].toggle-switch::after {
+        color: white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        content: '';
+        width: 7em;
+        height: 2.38em;
+        background-color: #30499B;
+        content: "Registro";
+        border-radius: 1em;
+        position: absolute;
+        transform: scale(1.05);
+        left: 0;
+        transition: left 0.09s ease-in-out;
+    }
 
-input[type=checkbox]#toggleswitch::after {
-    color: white;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    content: '';
-    width: 7em;
-    height: 2.38em;
-    background-color: #30499B;
-    content: "Registro";
-    
-    border-radius: 1em;
-    position: absolute;
-    transform: scale(1.05);
-    left: 0;
-    transition: left 0.09s ease-in-out;
-   
-}
+    input[type=checkbox].toggle-switch:checked::after {
+        left: 5.8em;
+        content: "Login" ;
+    }
 
-input[type=checkbox]#toggleswitch:checked::after {
-    left: 5.8em;
-    content: "Login" ;
-}
+    /*Cambiado*/
+    input[type=checkbox]#toggleswitch {
+
+        appearance: none;
+        -moz-appearance: none;
+        -webkit-appearance: none;
+        width: 170px;
+        height: 2.38em;
+        border-radius: 1em;
+        background-color:#b7b7bb ;
+        outline: 0;
+        cursor: pointer;
+        transition: background-color 0.05s ease-in-out;
+        position: relative;  
+    }
+
+    input[type=checkbox]#toggleswitch:checked {
+        background-color: #b7b7bb;
+    }
+
+    input[type=checkbox]#toggleswitch::after {
+        color: white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        content: '';
+        width: 7em;
+        height: 2.38em;
+        background-color: #30499B;
+        content: "Registro";
+        border-radius: 1em;
+        position: absolute;
+        transform: scale(1.05);
+        left: 0;
+        transition: left 0.09s ease-in-out;
+    }
+
+    input[type=checkbox]#toggleswitch:checked::after {
+        left: 5.8em;
+        content: "Login" ;
+    }
 }
 
 /*Version movil*/
@@ -316,180 +302,168 @@ input[type=checkbox]#toggleswitch:checked::after {
         margin-left: 15px;
     }
 
+    /*Login*/
 
-/*Login*/
+    #Principal{
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: left;
+        justify-content: center;
+    }
 
-#Principal{
-    width: 100%;
-    height: 100%;
-   
-    display: flex;
-    align-items: left;
-    justify-content: center;
+    #central{
+        width: 100%;
+        height: 100%;
+        position: fixed;
+        background-color: #FAFAFA;
+        display: flex;  
+        justify-content: center;
+        flex-wrap: wrap;
+        box-shadow: 2px 3px #8888;
+    }
 
-}
+    #arriba{
+        margin-top:40px;
+        height: 1%;
+        width: 20%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
 
-#central{
-    width: 100%;
-    height: 100%;
-    position: fixed;
-    background-color: #FAFAFA;
-    display: flex;  
-    justify-content: center;
-    flex-wrap: wrap;
-         box-shadow: 2px 3px #8888;
-}
-#arriba{
-        
-    margin-top:40px;
-    height: 1%;
-    width: 20%;
-    display: flex;
+    #arriba>img{
+        width: 200px;
+        height: 200px;
+    }
+
+    #titulo{
+        margin-top: 10%;
+        font-family: 'Roboto', sans-serif;
+    }
+
+    #enmedio{        
+        margin-top: 10%;
+        height: 10%;
+        width: 100%;
+        align-items: center;
+        justify-content: center;
+        display: flex;
+    }
+
+    #abajo{
+        margin-bottom: 30%;
+        height: 30%;
+        width: 70%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-wrap: wrap;
+        text-align: center;
+        font-size: 15px;
+    }
+
+    .mandar{
+        margin-top: 10%;
+        height: 35px;
+        width: 43%;
+        background-color:#30499B;
+        border-radius: 10px;
+        font-size: 15px;
+        color: white;
+        cursor: pointer;
+    }
+
+    .inputDatos{
+        margin-bottom:30px;
+        height: 30px;
+        width: 100%;
+        border:none;
+        outline: none;
+        background-color: transparent;
+        border-bottom: 1px solid black;
+        font-size: 18px;
+    }
+
+    input[type=checkbox].toggle-switch {
+        appearance: none;
+        -moz-appearance: none;
+        -webkit-appearance: none;
+        width: 170px;
+        height: 2.38em;
+        border-radius: 1em;
+        background-color:#b7b7bb ;
+        outline: 0;
+        cursor: pointer;
+        transition: background-color 0.05s ease-in-out;
+        position: relative;
+    }
+
+    input[type=checkbox].toggle-switch:checked {
+        background-color: #b7b7bb;
+    }
+
+    input[type=checkbox].toggle-switch::after {
+        color: white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        content: '';
+        width: 7em;
+        height: 2.38em;
+        background-color: #30499B;
+        content: "Registro";    
+        border-radius: 1em;
+        position: absolute;
+        transform: scale(1.05);
+        left: 0;
+        transition: left 0.09s ease-in-out;
     
-    align-items: center;
-    justify-content: center;
+    }
 
-}
-#arriba>img{
-    width: 200px;
-    height: 200px;
-}
-#titulo{
-    margin-top: 10%;
-    font-family: 'Roboto', sans-serif;
-}
-#enmedio{
-    
-margin-top: 10%;
-    height: 10%;
-    width: 100%;
-    align-items: center;
-    justify-content: center;
-    display: flex;
-}
-#abajo{
-    margin-bottom: 30%;
-    height: 30%;
-    width: 70%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-wrap: wrap;
-    text-align: center;
-    font-size: 15px;
-}
+    input[type=checkbox].toggle-switch:checked::after {
+        left: 5.8em;
+        content: "Login" ;
+    }
 
+    /*Cambiado*/
+    input[type=checkbox]#toggleswitch {
+        appearance: none;
+        -moz-appearance: none;
+        -webkit-appearance: none;
+        width: 170px;
+        height: 2.38em;
+        border-radius: 1em;
+        background-color:#b7b7bb ;
+        outline: 0;
+        cursor: pointer;
+        transition: background-color 0.05s ease-in-out;
+        position: relative;
+    }
 
-.mandar{
-    margin-top: 10%;
-    height: 35px;
-    width: 43%;
-    background-color:#30499B;
-    border-radius: 10px;
-    font-size: 15px;
-    color: white;
-    cursor: pointer;
-}
-.inputDatos{
-    margin-bottom:30px;
-    height: 30px;
-    width: 100%;
-    border:none;
-    outline: none;
-    background-color: transparent;
-    border-bottom: 1px solid black;
-    font-size: 18px;
-    
-}
-input[type=checkbox].toggle-switch {
+    input[type=checkbox]#toggleswitch:checked {
+        background-color: #b7b7bb;
+    }
 
-    appearance: none;
-    -moz-appearance: none;
-    -webkit-appearance: none;
-    width: 170px;
-    height: 2.38em;
-    border-radius: 1em;
-    background-color:#b7b7bb ;
-    outline: 0;
-    cursor: pointer;
-    transition: background-color 0.05s ease-in-out;
-    position: relative;
-   
-}
+    input[type=checkbox]#toggleswitch::after {
+        color: white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        content: '';
+        width: 7em;
+        height: 2.38em;
+        background-color: #30499B;
+        content: "Registro";
+        border-radius: 1em;
+        position: absolute;
+        transform: scale(1.05);
+        left: 0;
+        transition: left 0.09s ease-in-out;
+    }
 
-input[type=checkbox].toggle-switch:checked {
-    background-color: #b7b7bb;
-
-}
-
-input[type=checkbox].toggle-switch::after {
-    color: white;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    content: '';
-    width: 7em;
-    height: 2.38em;
-    background-color: #30499B;
-    content: "Registro";
-    
-    border-radius: 1em;
-    position: absolute;
-    transform: scale(1.05);
-    left: 0;
-    transition: left 0.09s ease-in-out;
-   
-}
-
-input[type=checkbox].toggle-switch:checked::after {
-    left: 5.8em;
-    content: "Login" ;
-}
-/*Cambiado*/
-input[type=checkbox]#toggleswitch {
-
-    appearance: none;
-    -moz-appearance: none;
-    -webkit-appearance: none;
-    width: 170px;
-    height: 2.38em;
-    border-radius: 1em;
-    background-color:#b7b7bb ;
-    outline: 0;
-    cursor: pointer;
-    transition: background-color 0.05s ease-in-out;
-    position: relative;
-   
-}
-
-input[type=checkbox]#toggleswitch:checked {
-    background-color: #b7b7bb;
-
-}
-
-input[type=checkbox]#toggleswitch::after {
-    color: white;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    content: '';
-    width: 7em;
-    height: 2.38em;
-    background-color: #30499B;
-    content: "Registro";
-    
-    border-radius: 1em;
-    position: absolute;
-    transform: scale(1.05);
-    left: 0;
-    transition: left 0.09s ease-in-out;
-   
-}
-
-input[type=checkbox]#toggleswitch:checked::after {
-    left: 5.8em;
-    content: "Login" ;
-}
-
-
+    input[type=checkbox]#toggleswitch:checked::after {
+        left: 5.8em;
+        content: "Login" ;
+    }
 }
