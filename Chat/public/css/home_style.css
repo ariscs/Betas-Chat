@@ -254,7 +254,7 @@
         align-items: center;
     }
     
-    .menu_button>a>img {
+    .menu_button>img {
         height: 28px;
         width: 28px;
         fill: blue;
