@@ -31,28 +31,6 @@ function nav(id){
 }
 
 
-
-$( ".toggle-switch" ).click(function() {
-	
-	if ($("#RepetirContraseña").length) {
-		$('#RepetirContraseña').remove();
-		$('#MandarCorreo').replaceWith('<input type="text" class="inputDatos" id="Correo" placeholder="Correo electronico">');
-		$('#MandarContraseña').replaceWith('<input type="text" class="inputDatos" id="Contraseña" placeholder="Contraseña">');
-		$('#registro-button').replaceWith('<input type="submit" id="login-button" class ="mandar" value="Login">');
-		generarEventoLogin();
-	}
-	else{
-		$('#login-button').replaceWith('<input type="submit" id="registro-button" class ="mandar" value="Registrar">');
-		
-		$('.mandar').before('<input type="text" class="inputDatos" id="RepetirContraseña" placeholder="Repita la Contraseña">');
-		$('#Correo').replaceWith('<input type="text" class="inputDatos" id="MandarCorreo" placeholder="Correo electronico">');
-		$('#Contraseña').replaceWith('<input type="text" class="inputDatos" id="MandarContraseña" placeholder="Contraseña">');
-		const btnRegistrar = document.getElementById('registro-button');
-		btnRegistrar.addEventListener('click', registrarDatos);
-	}
-});
-
-
 $(document).ready(function() {
 	generarEventoLogin();
 	var movementStrength = 100;
