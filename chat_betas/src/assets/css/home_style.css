@@ -5,9 +5,36 @@
 }
 
 /* Version Escritorio */
-@media (min-width: 768px){   
+@media (min-width: 768px){
+
+    /* Esto evita problemas con las vistas*/
+    #chats{
+        display: initial !important;
+    }
+
+    #chatsButton{
+        content: url("../img/speechBlue.svg") !important;
+    }
+
+    #config{
+        display: none !important;
+    }
+
+    #configButton{
+        content: url("../img/settingsGray.svg") !important;
+    }
+
+    #contacts{
+        display: none !important;
+    }
+
+    #contactsButton{
+        content: url("../img/phone-bookGray.svg") !important;
+    }
+    /* ... */
+
     .Principal-home{
-          background-image: linear-gradient( rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3) ), url('../img/fondo1.png') ;
+        background-image: linear-gradient( rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3) ), url('../img/fondo1.png') ;
         height: 100%;
         width: 100%;
 
@@ -15,37 +42,37 @@
         display:flex;
 
         align-items: center;
+    }
 
-        }
-        .image{
-            height: 0px;
-            width: 0px;
-        }
+    .image{
+        height: 0px;
+        width: 0px;
+    }
 
-       #Principal-contacts{
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-    display: initial !important;
-    height: 90%;
-    width: 22%;
-    background-color: #F3F3F3;
-    margin-left: 5%;
-    position: absolute;
-    display: flex !important;
-    justify-content: center;
-    flex-wrap: wrap;
-     
-}
-.ourUser{
-    display: flex;
-    align-items: center;
-    margin-top: 4px;
-    width: 98%;
-    height: 9%;
-     border-bottom: 1px solid #BBBBBB;
-}
+    #Principal-contacts{
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        display: initial !important;
+        height: 90%;
+        width: 22%;
+        background-color: #F3F3F3;
+        margin-left: 5%;
+        position: absolute;
+        display: flex !important;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    .ourUser{
+        display: flex;
+        align-items: center;
+        margin-top: 4px;
+        width: 98%;
+        height: 9%;
+        border-bottom: 1px solid #BBBBBB;
+    }
 #ourUser-picture{
     margin-left: 5%;
     display: flex;
