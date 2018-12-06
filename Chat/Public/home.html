@@ -39,7 +39,7 @@
             </div>
         </div>
 
-        <div class="main_container" id="config" style="display: none;">
+        <div class="main_containerConfig" id="config" style="display: none;">
             <div class="global_settings">
                 <div class="profile_settings">
                     <div class="profile_pic">
@@ -48,17 +48,30 @@
                     </div>
 
                     <div class="profile_info">
-                        <div><input type="text" value="User Name"></div>
-                        <div><p>e-mail address</p></div>
+                        <div class="username_input">
+                            <input type="text" value="User Name">
+                        </div>
+                        <div class="user_mail"><p>e-mail address</p></div>
                     </div>
                 </div>
 
-                <div class="password_change">
-                    <button>change password</button>
+                <div class="save_button">
+                    <button class="buttonConfig" onclick="changePassword()">change password</button>
                 </div>
 
                 <div class="save_button">
-                    <button>save changes</button>
+                    <button class="buttonConfig" style="background-color: #4CAF50 !important;">save changes</button>
+                </div>
+            </div>
+
+            <div class="newPassword" id="changePassword" style="display: none;">
+                <div class="newPassword_inputs">
+                    <input type="text" placeholder="new password">
+                    <input type="text" placeholder="confirm password">
+                </div>
+                
+                <div>
+                    <button class="buttonConfig_two" onclick="savePassword()">save</button>
                 </div>
             </div>
         </div>

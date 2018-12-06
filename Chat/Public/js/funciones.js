@@ -29,3 +29,11 @@ function nav(id){
 			break;
 	}
 }
+
+function changePassword(){
+	document.getElementById('changePassword').style.display = "block";
+}
+
+function savePassword(){
+	document.getElementById('changePassword').style.display = "none";
+}
