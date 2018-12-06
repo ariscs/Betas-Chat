@@ -25,7 +25,7 @@ function nav(id){
 			document.getElementById('contactsButton').src = "img/phone-bookGray.svg";
 			break;
 		default:
-			console.log("Error en funcion nav()");
+			console.log("Error en funcion nav() id invalido");
 			break;
 	}
 }
