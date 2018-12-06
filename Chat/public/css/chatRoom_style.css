@@ -10,7 +10,7 @@
 }
 
 .top_banner {
-    position: absolute;
+    position: fixed;
     background-color: #F3F3F3;
     width: 100%;
     height: 45px;
@@ -54,12 +54,14 @@
 
 .main_container {
     margin-top: 45px;
+    margin-bottom: 50px;
     position: absolute;
     background-color: #ffffff;
     width: 100%;
     height: 100%;
     z-index: -1;
     background-image: url('../img/chatBack.jpg');
+    background-attachment: fixed;
     background-size: cover;
     display: flex;
     flex-direction: column;
