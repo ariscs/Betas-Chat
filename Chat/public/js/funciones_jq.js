@@ -1,5 +1,6 @@
 //Funciones Jquery
 $( ".toggle-switch" ).click(function() {
+	$('#registro-button').replaceWith('<input type="submit" id="login-button" class ="mandar" value="Login">');
 	if ($("#RepetirContraseña").length) {
 		$('#RepetirContraseña').remove();
 		$('#MandarCorreo').replaceWith('<input type="text" class="inputDatos" id="Correo" placeholder="Correo electronico">');
