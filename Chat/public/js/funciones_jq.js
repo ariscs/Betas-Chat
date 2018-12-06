@@ -1,7 +1,8 @@
 //Funciones Jquery
 $( ".toggle-switch" ).click(function() {
-	$('#registro-button').replaceWith('<input type="submit" id="login-button" class ="mandar" value="Login">');
+	
 	if ($("#RepetirContraseña").length) {
+		$('#registro-button').replaceWith('<input type="submit" id="login-button" class ="mandar" value="Login">');
 		$('#RepetirContraseña').remove();
 		$('#MandarCorreo').replaceWith('<input type="text" class="inputDatos" id="Correo" placeholder="Correo electronico">');
 		$('#MandarContraseña').replaceWith('<input type="text" class="inputDatos" id="Contraseña" placeholder="Contraseña">');
@@ -12,6 +13,8 @@ $( ".toggle-switch" ).click(function() {
 		$('#Contraseña').replaceWith('<input type="text" class="inputDatos" id="MandarContraseña" placeholder="Contraseña">');
 	}	
 });
+
+
 
 
 $(document).ready(function() {
