@@ -19,8 +19,30 @@ $( ".toggle-switch" ).click(function() {
 
 $(document).ready(function() {
 	$("#Principal").mousemove(function(e){
-		var pageX = (e.pageX* -1 /15) ;
-		var pageY = (e.pageY* -1 /15) ;
+		var pageX = (e.pageX * -1 /15) ;
+		var pageY = (e.pageY * -1 /15) ;
 		$('#Principal').css("background-position", pageX+"px     "+pageY+"px");
 	});
+});
+
+
+$( "#userPictt" ).click(function() {
+	$('#userPict').hide();
+	$('#userPictt').hide();
+	$('#backPict').css("display","initial");
+	$('#message-content').hide();
+	$('#search-bar').hide();
+	
+
+});
+
+
+$( "#backPict" ).click(function() {
+	$('#userPict').show();
+	$('#userPictt').show();
+	$('#message-content').show();
+	$('#search-bar').show();
+	$('#backPict').hide();
+	
+
 });
