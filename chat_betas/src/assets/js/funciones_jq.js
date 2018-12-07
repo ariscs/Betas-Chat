@@ -1,15 +1,15 @@
 //Funciones Jquery
 $( ".toggle-switch" ).click(function() {
 	if ($("#RepetirContraseña").length) {
-		$('#registro-button').replaceWith('<input type="submit" id="login-button" class ="mandar" value="Log-in">');
+		$('#registro-button').replaceWith('<input type="submit" id="login-button" class ="mandar" value="Log in">');
 		$('#RepetirContraseña').remove();
-		$('#MandarCorreo').replaceWith('<input type="text" class="inputDatos" id="Correo" placeholder="Correo electronico">');
-		$('#MandarContraseña').replaceWith('<input type="text" class="inputDatos" id="Contraseña" placeholder="Contraseña">');
+		$('#MandarCorreo').replaceWith('<input type="text" class="inputDatos" id="Correo" placeholder="Email">');
+		$('#MandarContraseña').replaceWith('<input type="text" class="inputDatos" id="Contraseña" placeholder="Password">');
 	}else{
-		$('#login-button').replaceWith('<input type="submit" id="registro-button" class ="mandar" value="Sign-up">');		
-		$('.mandar').before('<input type="text" class="inputDatos" id="RepetirContraseña" placeholder="Repita la Contraseña">');
-		$('#Correo').replaceWith('<input type="text" class="inputDatos" id="MandarCorreo" placeholder="Correo electronico">');
-		$('#Contraseña').replaceWith('<input type="text" class="inputDatos" id="MandarContraseña" placeholder="Contraseña">');
+		$('#login-button').replaceWith('<input type="submit" id="registro-button" class ="mandar" value="Sign up">');		
+		$('.mandar').before('<input type="text" class="inputDatos" id="RepetirContraseña" placeholder="Confirm password">');
+		$('#Correo').replaceWith('<input type="text" class="inputDatos" id="MandarCorreo" placeholder="Email">');
+		$('#Contraseña').replaceWith('<input type="text" class="inputDatos" id="MandarContraseña" placeholder="Password">');
 	}	
 });
 

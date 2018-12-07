@@ -272,7 +272,7 @@
         align-items: center;
         justify-content: start;
         margin-bottom: 400px;
-    position: absolute;
+        position: absolute;
     }
 
     .pBack{
@@ -571,7 +571,7 @@
         width: 7em;
         height: 2.38em;
         background-color: #30499B;
-        content: "Registro";
+        content: "Sing up";
         border-radius: 1em;
         position: absolute;
         transform: scale(1.05);
@@ -581,7 +581,7 @@
 
     input[type=checkbox].toggle-switch:checked::after {
         left: 5.8em;
-        content: "Login" ;
+        content: "Log in";
     }
 
     /*Cambiado*/
