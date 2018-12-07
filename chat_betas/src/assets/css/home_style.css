@@ -35,6 +35,10 @@
     #chatsMovil{
         display: none !important;
     }
+
+    .addButton{
+        display: none;
+    }
     /* ... */
     
     .Principal-home{
@@ -823,8 +827,29 @@ display: initial !important;
         justify-content: center;
     }
     
-    .top_banner>h1{
+    .top_banner_text{
+        flex-grow: 1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .top_banner_text>h1{
         font-size: 16px;
+        margin-left: 45px;
+    }
+
+    .addButton{
+        width: 45px;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center
+    }
+
+    .addButton>img{
+        height: 24px;
+        width: 24px;;
     }
     
     .menu_bar {
@@ -867,11 +892,9 @@ display: initial !important;
         display: flex;
         align-items: center;
         justify-content: center;
-        position: absolute;
     }
     
     .search_bar {
-        position: absolute;
         border: none;
         width: 346px;
         height: 21px;
@@ -938,6 +961,69 @@ display: initial !important;
 
     #little-text{
         width: 100%;
+    }
+
+    /* Agregar contacto */
+    #addContactWindow{
+        background-color: rgba(0, 0, 0, 0.3);
+        height: 100%;
+        width: 100%;
+        z-index: 1;
+        display: flex;
+        justify-content: center !important;
+        align-items: center !important;
+    }
+
+    #addContact-popUp{
+        width: 300px;
+        height: auto;
+        opacity: 1;
+        background-color: #F3F3F3;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        border-radius: 20px;
+    }
+
+    #addContact-popUp>div{
+        width: 100%;
+        margin-bottom: 10px;
+        display: flex;
+        justify-content: center;
+    }
+
+    #addContact-popUp>div>h1{
+        font-size: 16px;
+        margin-top: 20px;
+    }
+
+    #addContact-popUp>div>input{
+        height: 36px;
+        width: 70%;
+        border: none;
+        box-sizing: border-box;
+        outline: none;
+        border-bottom: 2px solid #707070;
+        font-size: 16px;
+    }
+
+    .addContactsButton{
+        background-color: #30499B;
+        border: none;
+        color: white;
+        padding: 12px 22px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        border-radius: 20px;
+        outline: none;
+    }
+
+    #addContact-popUp>div>p{
+        font-size: 14px;
+        color: #30499B;
     }
 
     /*Settings*/
@@ -1088,6 +1174,22 @@ display: initial !important;
         border-radius: 20px;
         margin-left: 22px;
         outline: none;
+    }
+
+    .singout_button{
+        width: 100%;
+        height: 80px;
+        background-color: white;
+        margin-top: 20px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-bottom: 1px solid #707070;
+        border-top: 1px solid #707070;
+    }
+
+    .singout_button>button{
+        width: 150px;
     }
 
     /*Login*/

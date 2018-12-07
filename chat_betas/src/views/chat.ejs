@@ -122,10 +122,24 @@
         </div>
 
 
-
+        <!-- vista movil -->
         <div class="top_banner">
-            <h1 id="h1-Chats">Chats</h1>
-              
+            <div class="top_banner_text">
+                <h1 id="title-banner">Chats</h1>
+            </div>
+
+            <div class="addButton" onclick="addContact()">
+                <img src="img/add.svg">
+            </div>
+        </div>
+
+        <div class="main_container" id="addContactWindow" style="display: none;">
+            <div id="addContact-popUp">
+                <div><h1>Add Contact</h1></div>
+                <div><input type="text" placeholder="Email"></div>
+                <div><button class="addContactsButton">Add contact</button></div>
+                <div><p onclick="addContactCancel()">Cancel</p></div>
+            </div>
         </div>
 
         <div class="main_container" id="contacts" style="display: none;">
@@ -153,8 +167,9 @@
                 </div>
             <% } %>
         </div>
+        <!-- ... -->
 
-         <div class="input_banner-web"style="display: none;" >
+        <div class="input_banner-web"style="display: none;" >
             <div class="pic"><img src="img/add.svg"></div>
 
             <div class="input_bar-web">
@@ -237,6 +252,10 @@
                 <div>
                     <button class="buttonConfig_two" onclick="savePassword()">save</button>
                 </div>
+            </div>
+
+            <div class="singout_button">
+                <button class="buttonConfig" style="background-color: #EF4647 !important;">Sing out</button>
             </div>
         </div>
 

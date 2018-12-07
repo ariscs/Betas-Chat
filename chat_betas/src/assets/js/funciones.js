@@ -9,6 +9,7 @@ function nav(id){
 				document.getElementById('configButton').src = "img/settingsGray.svg";
 				document.getElementById('contacts').style.display = "initial";
 				document.getElementById('contactsButton').src = "img/phone-bookBlue.svg";
+				document.getElementById('title-banner').innerHTML = "Contacts"
 				break;
 			case "chatsButton":
 				document.getElementById('chatsMovil').style.display = "initial";
@@ -17,6 +18,7 @@ function nav(id){
 				document.getElementById('configButton').src = "img/settingsGray.svg";
 				document.getElementById('contacts').style.display = "none";
 				document.getElementById('contactsButton').src = "img/phone-bookGray.svg";
+				document.getElementById('title-banner').innerHTML = "Chats"
 				break;
 			case "configButton":
 				document.getElementById('chatsMovil').style.display = "none";
@@ -25,6 +27,7 @@ function nav(id){
 				document.getElementById('configButton').src = "img/settingsBlue.svg";
 				document.getElementById('contacts').style.display = "none";
 				document.getElementById('contactsButton').src = "img/phone-bookGray.svg";
+				document.getElementById('title-banner').innerHTML = "Settings"
 				break;
 			default:
 				console.log("Error en funcion nav()");
@@ -41,6 +44,13 @@ function savePassword(){
 	document.getElementById('changePassword').style.display = "none";
 }
 
+function addContact(){
+	document.getElementById('addContactWindow').style.display = "flex"
+}
+
+function addContactCancel(){
+	document.getElementById('addContactWindow').style.display = "none"
+}
 
 $(document).ready(function() {
 	generarEventoLogin();
