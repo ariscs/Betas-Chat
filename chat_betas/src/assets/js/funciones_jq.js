@@ -32,7 +32,8 @@ $( "#userPictt" ).click(function() {
 	$('#userPictt').hide();
 	$('#backPict').css("display","initial");
 	$('#message-content').hide();
-	
+	$('#BusquedaContactos').hide(); 
+	$('#Contacts-tittle').remove();
 
 	$('#Configuracion-web').css("display","initial");  
 
@@ -51,7 +52,8 @@ $( "#backPict" ).click(function() {
 	$('#message-content').show();
 	$('#search-bar').show();
 	$('#backPict').hide();
-	
+	$('#BusquedaContactos').hide(); 
+	$('#Contacts-tittle').remove();
 	$('#NewUser-input').remove();
 	$('#SaveButton').remove();
 });
@@ -86,7 +88,7 @@ $( ".Settings_Password" ).click(function() {
 });
 $( "#IniciarConversacion" ).click(function() {
 	if ($("#Contacts-tittle").length) {
-
+		
 	$('#BusquedaContactos').hide(); 
 	$('#Contacts-tittle').remove();
 	$('#search-content').show();
@@ -97,12 +99,15 @@ $( "#IniciarConversacion" ).click(function() {
 	
 	$('#BusquedaContactos').css("display","initial");  
 	$('#search-bar').after(' <h3 id="Contacts-tittle">Contacts</h3> ');
-
+	$('#Configuracion-web').hide();
 	$('#message-content').hide();
 
 	}
 	
-	
-
-	
+});
+$( "#AddUser-img" ).click(function() {
+	$('.sticky').css("display","initial");  
+});
+$( "#close-img" ).click(function() {
+	$('.sticky').hide(); 
 });

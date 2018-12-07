@@ -408,7 +408,59 @@ margin-top: 10px;
   align-items: center;
   flex-wrap: wrap;
 }
-
+.sticky{
+   margin-left: 24%;
+   margin-bottom: 30%;
+    width: 300px;
+    height: 200px;
+    position: sticky;
+    background-color:#EEEEEE;
+    border:1px solid #BBBBBB;
+    border-radius: 10px;
+    align-items: center;
+    justify-content: center;
+}
+#Sticky-Input{
+    
+    text-align: center;
+    margin-left: 6.25%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    background-color: white;
+    border-radius: 10px;
+    height: 80%;
+    width: 85%;
+}
+#Sticky-Close{
+    margin-left: 90%;
+height: 10%;
+width: 3%;
+}
+#Sticky-aceptar{
+    margin-top: 10px;
+    height: 15%;
+    width: 35%;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    background-color: #30499B;
+}
+#Sticky-agregarAmigo{
+    text-align: center;
+    color: #707070;
+    border-radius: 8px;
+    margin-top: 10px;
+}
+#close-img{
+    width: 20px;
+    height: 20px;
+    margin-left: 92%;
+   margin-bottom: 20%;
+    
+    cursor: pointer;
+}
 .top_banner-web {
   -webkit-user-select: none;
   -moz-user-select: none;
