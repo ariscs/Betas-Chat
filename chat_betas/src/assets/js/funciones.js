@@ -3,7 +3,7 @@ function nav(id){
 	{
 		switch(id){
 			case "contactsButton":
-				document.getElementById('chats').style.display = "none";
+				document.getElementById('chatsMovil').style.display = "none";
 				document.getElementById('chatsButton').src = "img/speechGray.svg";
 				document.getElementById('config').style.display = "none";
 				document.getElementById('configButton').src = "img/settingsGray.svg";
@@ -11,7 +11,7 @@ function nav(id){
 				document.getElementById('contactsButton').src = "img/phone-bookBlue.svg";
 				break;
 			case "chatsButton":
-				document.getElementById('chats').style.display = "initial";
+				document.getElementById('chatsMovil').style.display = "initial";
 				document.getElementById('chatsButton').src = "img/speechBlue.svg";
 				document.getElementById('config').style.display = "none";
 				document.getElementById('configButton').src = "img/settingsGray.svg";
@@ -19,7 +19,7 @@ function nav(id){
 				document.getElementById('contactsButton').src = "img/phone-bookGray.svg";
 				break;
 			case "configButton":
-				document.getElementById('chats').style.display = "none";
+				document.getElementById('chatsMovil').style.display = "none";
 				document.getElementById('chatsButton').src = "img/speechGray.svg";
 				document.getElementById('config').style.display = "initial";
 				document.getElementById('configButton').src = "img/settingsBlue.svg";

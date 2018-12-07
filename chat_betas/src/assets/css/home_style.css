@@ -31,6 +31,10 @@
     #contactsButton{
         content: url("../img/phone-bookGray.svg") !important;
     }
+
+    #chatsMovil{
+        display: none !important;
+    }
     /* ... */
     
     .Principal-home{
@@ -721,9 +725,10 @@ display: initial !important;
 
 @media (min-width: 100px) and (max-width: 767px){
     .Principal-home{
-height: 100%;
-    width: 100%;
-}
+        height: 100%;
+        width: 100%;
+    }
+
     .container {
         height: 100%;
         width: 100%;
@@ -804,11 +809,55 @@ height: 100%;
         background-color: #f3f3f3;
         display: flex;
         align-items: center;
+        margin-bottom: 5px;
     }
     
     .letter>p{
         font-size: 14px;
         margin-left: 15px;
+    }
+
+    .message-in{
+        width: 100%;
+        height: 70px;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center
+    }
+
+    #img-in{
+        width: 88px;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    #userInPict{
+        height: 58px;
+        width: 58px;
+        border-radius: 50%;
+        border: 1px solid #30499B;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    #datos-in{
+        height: 100%;
+        flex-grow: 1;
+        border-bottom: 1px solid #707070;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    #name-in{
+        width: 100%;
+    }
+
+    #little-text{
+        width: 100%;
     }
 
     /*Settings*/

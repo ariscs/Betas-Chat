@@ -121,19 +121,29 @@
         </div>
 
         <div class="main_container" id="contacts" style="display: none;">
-           
-                <div class="search">
-                        <form>
-                            <input type="text" class="search_bar" placeholder="search">
-                        </form>
-                    </div>
+            <div class="search">
+                <form>
+                    <input type="text" class="search_bar" placeholder="search">
+                </form>
+            </div>
+            
             <div class="letter">
-                <p>Me</p>
+                <p>Contacts</p>
             </div>
 
-            <div class="contact">
+            <% for(let i = 0; i < data.length; i++) { %>
+                <div class="message-in" data-id-contact="<%= data[i].idUsuarioAgregado %>"> 
+                   <div id="img-in">
+                        <div id="userInPict"><img src="img/user.svg" ></div>
+                   </div>
 
-            </div>
+                   <div id="datos-in">
+                       <div id="name-in">
+                           <h3 id="<%= data[i].idUsuarioAgregado %>"><%= data[i].nombreContacto %></h3>
+                       </div>
+                   </div>
+                </div>
+            <% } %>
         </div>
 
          <div class="input_banner-web"style="display: none;" >
@@ -146,34 +156,54 @@
             <div class="pic"><img src="img/send.svg"></div>
         </div>
 
-
-
-
-
         <div class="main_container" id="chats">
-
-
             <div class="in" style="display: none;">
                 <div class="in_p">
                     <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit numquam ullam rem non maxime, optio ad perspiciatis, similique maiores illum voluptatibus ducimus inventore in! Officia animi accusamus nesciunt iusto repudiandae!
                     ffdsfsdfsdfsdfsdfdsfsdffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
                 ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff</p>
                 </div>
+
                 <div class="in_hour">
                     <p>12:30</p>
                 </div>
             </div>
 
             <div class="out" style="display: none;"> 
-                
                 <div class="out_p">
                     <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit</p>
                 </div>
+
                 <div class="out_hour">
                     <p>12:32</p>
                 </div>
             </div>
         </div>
+
+        <!-- No Borren esto que ya me lo borraron una vez -->
+        <div class="main_container" id="chatsMovil">
+            <div class="search">
+                <input type="text" class="search_bar" placeholder="search">
+            </div>
+
+            <% for(let i = 0; i < data.length; i++) { %>
+                <div class="message-in" data-id-contact="<%= data[i].idUsuarioAgregado %>"> 
+                   <div id="img-in">
+                        <div id="userInPict"><img src="img/user.svg" ></div>
+                   </div>
+                   
+                   <div id="datos-in">
+                       <div id="name-in">
+                           <h3 id="<%= data[i].idUsuarioAgregado %>"><%= data[i].nombreContacto %></h3>
+                       </div>
+                       <div id="little-text">
+                           <p>Mensaje de prototipo</p>
+                       </div>
+                   </div>
+                </div>
+            <% } %>
+        </div>
+        <!-- ... -->
         
 
 
