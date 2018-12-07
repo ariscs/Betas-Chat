@@ -52,5 +52,57 @@ $( "#backPict" ).click(function() {
 	$('#search-bar').show();
 	$('#backPict').hide();
 	
+	$('#NewUser-input').remove();
+	$('#SaveButton').remove();
+});
 
+$( ".Settings_User" ).click(function() {
+	if ($("#NewUser-input").length) {
+
+		$('#NewUser-input').remove();
+	$('#SaveButton').remove();
+	}
+	else{
+		$('.Settings_Password').before('<input type="text" id="NewUser-input" placeholder="Ingrese el usuario">');
+	$('.Settings_Password').before('<button id="SaveButton"> Save </button>');
+	}
+	
+	
+});
+
+$( ".Settings_Password" ).click(function() {
+	if ($("#Newpass-input").length) {
+
+		$('#Newpass-input').remove();
+	$('#SaveButton').remove();
+	}
+	else{
+		
+		$('.Settings_Password').after('<button id="SaveButton"> Save </button>');
+		$('.Settings_Password').after('<input type="password" id="Newpass-input" placeholder="Ingrese el password">');
+	}
+	
+	
+});
+$( "#IniciarConversacion" ).click(function() {
+	if ($("#Contacts-tittle").length) {
+
+	$('#BusquedaContactos').hide(); 
+	$('#Contacts-tittle').remove();
+	$('#search-content').show();
+	$('#search-img').show();
+	$('#message-content').show();
+	}
+	else{
+	
+	$('#BusquedaContactos').css("display","initial");  
+	$('#search-bar').after(' <h3 id="Contacts-tittle">Contacts</h3> ');
+
+	$('#message-content').hide();
+
+	}
+	
+	
+
+	
 });

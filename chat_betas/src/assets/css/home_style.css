@@ -193,14 +193,27 @@ border-top-left-radius: 10px;
   
 }
 #Configuracion-web{
-    width: 98%;
+    width: 80%;
 height: 80%;
 display: flex;
 justify-content: center;
 align-items: center;
- background-color: red;
-
+background-color: white;
+border-radius: 10px;
+padding: 10px;
+text-align: center;
 }
+
+#BusquedaContactos{
+    overflow-y: scroll;
+    width: 98%;
+    height: 75%;
+    background-color: #EEEEEE;
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+}
+
 .User_settings_Web{
     margin-left: 4.5%;
     height: 30%;
@@ -209,15 +222,80 @@ align-items: center;
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: green;
+   
     flex-direction: column;
 }
+
 .Nuevos_Datos_Perfil_Web{
-    margin-left: 4.5%;
+    margin-left: 26%;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   flex-wrap: wrap;
+    
+    width: 50%;
+    height: auto;
+}
+.Cerrar_Perfil_Web{
+    margin-top: 37%;
+    margin-left: 26%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+     
+     width: 50%;
+     height: 20%;
+}
+#CerrarSesion{
    
-    background-color: gray;
-    width: 90%;
-    height: 30%;
+    cursor: pointer;
+    width: 60%;
+    height: 23%;
+    border: none;
+    border-radius: 5px;
+    background-color: red;
+    color: white;
+}
+#NewUser-input{
+    width: 170px;;
+    height: 35px;
+    border: none;
+    border-radius: 10px;
+    text-align: center;
+   
+}
+#Newpass-input{
+    width: 170px;;
+    height: 35px;
+    border: none;
+    border-radius: 10px;
+    text-align: center;
+}
+#SaveButton{
+    cursor: pointer;
+    width: 70px;
+    height: 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: green;
+    color: white;
+}
+.Settings_User{
+   
+    cursor: pointer;
+    width: 170px;;
+    height: 35px;
+    border: none;
+    border-radius: 5px;
+}
+.Settings_Password{
+    margin-top: 30px;
+    cursor: pointer;
+    width: 170px;;
+    height: 35px;
+    border: none;
+    border-radius: 5px;
 }
 #Perfil_Image{
     
@@ -789,9 +867,11 @@ display: initial !important;
         display: flex;
         align-items: center;
         justify-content: center;
+        position: absolute;
     }
     
     .search_bar {
+        position: absolute;
         border: none;
         width: 346px;
         height: 21px;
