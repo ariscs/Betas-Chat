@@ -5,12 +5,12 @@ $( ".toggle-switch" ).click(function() {
 		$('#registro-button').replaceWith('<input type="submit" id="login-button" class ="mandar" value="Login">');
 		$('#RepetirContraseña').remove();
 		$('#MandarCorreo').replaceWith('<input type="text" class="inputDatos" id="Correo" placeholder="Correo electronico">');
-		$('#MandarContraseña').replaceWith('<input type="text" class="inputDatos" id="Contraseña" placeholder="Contraseña">');
+		$('#MandarContraseña').replaceWith('<input type="password" class="inputDatos" id="Contraseña" placeholder="Contraseña">');
 	}else{
 		$('#login-button').replaceWith('<input type="submit" id="registro-button" class ="mandar" value="Registrar">');		
-		$('.mandar').before('<input type="text" class="inputDatos" id="RepetirContraseña" placeholder="Repita la Contraseña">');
+		$('.mandar').before('<input type="password" class="inputDatos" id="RepetirContraseña" placeholder="Repita la Contraseña">');
 		$('#Correo').replaceWith('<input type="text" class="inputDatos" id="MandarCorreo" placeholder="Correo electronico">');
-		$('#Contraseña').replaceWith('<input type="text" class="inputDatos" id="MandarContraseña" placeholder="Contraseña">');
+		$('#Contraseña').replaceWith('<input type="password" class="inputDatos" id="MandarContraseña" placeholder="Contraseña">');
 	}	
 });
 
@@ -27,10 +27,15 @@ $(document).ready(function() {
 
 
 $( "#userPictt" ).click(function() {
+	$('#AddUser').hide();
 	$('#userPict').hide();
 	$('#userPictt').hide();
 	$('#backPict').css("display","initial");
 	$('#message-content').hide();
+	
+
+	$('#Configuracion-web').css("display","initial");  
+
 	$('#search-bar').hide();
 	
 
@@ -38,6 +43,9 @@ $( "#userPictt" ).click(function() {
 
 
 $( "#backPict" ).click(function() {
+	
+	$('#Configuracion-web').hide();
+	$('#AddUser').show();
 	$('#userPict').show();
 	$('#userPictt').show();
 	$('#message-content').show();
