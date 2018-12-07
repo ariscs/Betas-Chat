@@ -730,7 +730,7 @@ display: initial !important;
     }
 
     #enmedio{    
-        margin-top: 10%;
+        margin-top: 6%;
         height: 10%;
         width: 100%;
         align-items: center;
@@ -751,7 +751,7 @@ display: initial !important;
     }
 
     .mandar{
-        margin-top: 10%;
+        margin-top: 8%;
         height: 35px;
         width: 43%;
         background-color:#30499B;
@@ -762,7 +762,7 @@ display: initial !important;
     }
 
     .inputDatos{
-        margin-bottom:30px;
+        margin-bottom:20px;
         height: 30px;
         width: 100%;
         border:none;

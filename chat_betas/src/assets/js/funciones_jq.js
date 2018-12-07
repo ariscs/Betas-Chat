@@ -9,6 +9,7 @@ $( ".toggle-switch" ).click(function() {
 	}else{
 		$('#login-button').replaceWith('<input type="submit" id="registro-button" class ="mandar" value="Registrar">');		
 		$('.mandar').before('<input type="password" class="inputDatos" id="RepetirContraseña" placeholder="Repita la Contraseña">');
+		$('.mandar').before('<input type="text" class="inputDatos" id="RegistroNombreUsuario" placeholder="Nombre de Usuario">');
 		$('#Correo').replaceWith('<input type="text" class="inputDatos" id="MandarCorreo" placeholder="Correo electronico">');
 		$('#Contraseña').replaceWith('<input type="password" class="inputDatos" id="MandarContraseña" placeholder="Contraseña">');
 	}	
