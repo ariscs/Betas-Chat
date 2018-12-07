@@ -48,6 +48,8 @@ router.post('/registro', passport.authenticate('local-signup', {
 //THIS ROUTES WORK WHEN THE USER LOG IN THE PAGE
 router.get('/chat', middleware.authorization, controller.chat);
 router.post('/api/get-messages', controller.getMessages);
+router.post('/api/get-last-messages', controller.getLastMessages);
+
 
 //TEESTT
 router.get('/perfil', middleware.authorization, controller.profile);

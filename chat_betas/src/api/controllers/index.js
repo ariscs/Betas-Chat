@@ -17,6 +17,7 @@ module.exports = controller = {
                 if(err) throw err;
                 res.render('chat', {data: result});
             })
+
         })
     },
 
@@ -58,5 +59,64 @@ module.exports = controller = {
         if(req.file){
             console.log
         }
+    },
+
+    getLastMessages: async (req, res) => {
+        console.log(req.body)
+        var promiseResult = []
+        var promiseResult2 = []
+        var result = []
+        var result2 = []
+        function getCon(idUserEmisor) {
+            return new Promise((resolve, reject) => {
+                req.getConnection((err, connection) => {
+                    if(err) throw err;
+                    connection.query('SELECT * FROM `mensaje` WHERE (`idUsuarioRemitente` = ? AND `idUsuarioEmisor` = ?)  ORDER BY `idUsuarioRemitente`', [req.session.passport.user.idUsuario, idUserEmisor], async (err, result) => {
+                        connection.destroy();
+                        resolve(result);
+                    })
+
+                })
+            })
+        }
+        
+        function getCon2(idUserEmisor) {
+        return new Promise((resolve, reject) => {
+                req.getConnection((err, connection) => {
+                        if(err) throw err;
+                        connection.query('SELECT * FROM `mensaje` WHERE (`idUsuarioEmisor` = ? AND `idUsuarioRemitente` = ?)  ORDER BY `idUsuarioEmisor`', [req.session.passport.user.idUsuario, idUserEmisor], async (err, result) => {
+                            connection.destroy();
+                            resolve(result);
+                    })
+                })
+            })
+        }
+
+        for(let j = 0; j < req.body.dataUsers.length; j++){
+            promiseResult.push(getCon(req.body.dataUsers[j].idUserFriend));
+        }
+
+        
+        Promise.all(promiseResult).then((data) => {
+            result = []
+            data.forEach(obj => {
+                result.push(obj);
+            })
+        })         
+        
+        for(let i = 0; i < req.body.dataUsers.length; i++){
+            promiseResult2.push(getCon2(req.body.dataUsers[i].idUserFriend));
+        }
+
+        Promise.all(promiseResult2).then((data) => {
+            result2 = []
+            data.forEach(obj => {
+                result2.push(obj)
+            })
+            setTimeout(() => {
+                res.json({res1: result, res2: result2})
+            }, 100)
+        })
+        
     }
 }

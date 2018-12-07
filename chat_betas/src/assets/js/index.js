@@ -9,5 +9,6 @@ const getData = () => {
         user: user.value,
         password: password.value
     }
+
     return data;
 }
