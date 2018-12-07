@@ -1,4 +1,4 @@
-
+const bcrypt = require('bcrypt');
 
 module.exports = controller = {
     index: (req, res) => {
@@ -43,22 +43,76 @@ module.exports = controller = {
         });
     },
 
-    profile: (req, res) => {
-        let data = [req.session.passport.user.idUsuario];
-        let returnData;
-        req.getConnection(async (err, connection) => {
-            await connection.query('SELECT `correoUsuario`, `srcUsuario` FROM `usuario` WHERE `idUsuario` = ?', data, async (err, result) => {
-                if(err) throw err;
-                returnData = await result;
-                res.render('perfil', {returnData});
+    // profile: (req, res) => {
+    //     let data = [req.session.passport.user.idUsuario];
+    //     let returnData;
+    //     req.getConnection(async (err, connection) => {
+    //         await connection.query('SELECT `correoUsuario`, `srcUsuario` FROM `usuario` WHERE `idUsuario` = ?', data, async (err, result) => {
+    //             if(err) throw err;
+    //             returnData = await result;
+    //             res.render('perfil', {returnData});
+    //         })
+    //     });
+    // },
+
+    // uploadImg: (req, res) => {
+    //     if(req.file){
+    //         console.log
+    //     }
+    // },
+    
+    
+    getDataUser: (req, res) => {
+        req.getConnection((err, connection) => {
+            if(err) throw err;
+            connection.query('SELECT idUsuario, nombreUsuario, correoUsuario, srcUsuario  FROM `usuario` WHERE `idUsuario` = ?', [req.session.passport.user.idUsuario], (err, result) =>{
+                res.json(result);
             })
-        });
+        })
     },
 
-    uploadImg: (req, res) => {
-        if(req.file){
-            console.log
+    updateDataUser: (req, res) => {
+        req.getConnection((err, connection) => {
+            connection.query('UPDATE usuario SET `nombreUsuario` = ? WHERE `idUsuario` = ?', [req.body.userName, req.session.passport.user.idUsuario], (err, result) => {
+                res.json({status: 'OK'});
+            })
+        })
+    },
+
+    updatePassUser: (req, res) => {
+        const salt = bcrypt.genSaltSync(10);
+        const hash = bcrypt.hashSync(req.body.password, salt);
+        req.getConnection((err, connection) => {
+            connection.query('UPDATE usuario SET `passwordUsuario` = ? WHERE `idUsuario` = ?', [hash, req.session.passport.user.idUsuario], (err, result) => {
+                res.json({status: 'OK'});
+            })
+        })
+    },
+
+    requestToFriend: (req, res) => {
+        console.log(req.body)
+        const data = {
+            estadoContacto: '1',
+            nombreContacto: req.body[0].nombreUsuario,
+            idUsuarioAgregado: req.body[0].idUsuario,
+            idUsuario: req.session.passport.user.idUsuario
         }
+        console.log(data)
+        req.getConnection((err, connection) => {
+            if(err) throw err;
+            connection.query('INSERT INTO `contacto` SET ?', data, (err, result) => {
+                res.json({status: 'OK'});
+            })
+        })
+    },
+
+    verifyFriend: (req, res) => {
+        req.getConnection((err, connection) => {
+            if(err) throw err;
+            connection.query('SELECT * FROM `usuario` WHERE `correoUsuario` = ?', [req.body.email], (err, result) => {
+                res.json(result);
+            } )
+        })
     },
 
     getLastMessages: async (req, res) => {
@@ -117,6 +171,6 @@ module.exports = controller = {
                 res.json({res1: result, res2: result2})
             }, 100)
         })
-        
     }
+    
 }

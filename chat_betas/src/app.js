@@ -6,7 +6,8 @@ const morgan = require('morgan');
 const path = require('path');
 const passport = require('passport');
 const session = require('express-session');
-const flash = require('connect-flash')
+const flash = require('connect-flash');
+const engine = require('ejs-mate');
 
 let server = require('http');
 let io = require('socket.io');
@@ -24,6 +25,7 @@ require('./api/helpers/socket')(io);
 //Settings
 app.set('port', 3000 || process.env.PORT);
 app.set('views', path.join(__dirname, 'views'));
+app.engine('ejs', engine)
 app.set('view engine', 'ejs');
 
 //Middlewares

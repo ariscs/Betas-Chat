@@ -3,7 +3,8 @@ const socket = io.connect();
 const chat = document.getElementById('chat');
 const chats = document.getElementById('chats');
 const myId = document.getElementById('Principal-contacts').getAttribute('data-id-personal');
-const searchInput = document.getElementById('search-input')
+const searchInput = document.getElementById('search-input');
+const btnStickyAcccept = document.getElementById('Sticky-aceptar');
 //GLOBALS
 var btnSendMessage;
 var inpMessage;
@@ -46,48 +47,27 @@ const createChat = (e) => {
         idContact = e.target.parentNode.parentNode.parentNode
     }
 
+    
     idContact = idContact.getAttribute('data-id-contact');
     chats.setAttribute('data-id-contact', idContact)
     getMessages(idContact, myId);
 
+    const roomChat = document.getElementById('contacts')
+    if(document.getElementById(idContact).nextElementSibling == null){
+        console.log(roomChat.previousElementSibling.previousElementSibling.previousElementSibling.children[2].innerHTML = `<h1> ${document.getElementById(idContact).innerText} </h1>`)
+    } else {
+        console.log(roomChat.previousElementSibling.previousElementSibling.previousElementSibling.children[2] = `<h1> ${document.getElementById(idContact).nextElementSibling.innerText} </h1>`)
+    }
+
+    
     btnSendMessage = document.getElementsByClassName('pic')[1];
     btnSendMessage.addEventListener('click', sendMessageToContact);
     const divBarMessage = document.getElementsByClassName('input_bar-web')[0];
+    divBarMessage.children[0].value = ''
+    divBarMessage.children[0].innerText = ''
+    divBarMessage.children[0].focus();
     divBarMessage.addEventListener('keyup', isTyping);
 }
-
-// const createChat = (e) => {
-//     //Delete the inputs and buttons of the chat
-//     chat.innerHTML = '';
-//     //Create input to send message
-//     const inputMessage = document.createElement('input');
-//     inputMessage.setAttribute('id', 'message');
-//     inputMessage.setAttribute('placeholder', 'Tú mensaje aquí');
-//     //Create button to send messsage 
-//     const sendMessage = document.createElement('button');
-//     sendMessage.innerText = 'Enviar mensaje';
-//     sendMessage.setAttribute('id', 'send-message');
-//     //Create input type file
-//     const inputFile = document.createElement('input');
-//     inputFile.setAttribute('type', 'file');
-//     inputFile.setAttribute('id', 'file-img');
-//     chat.appendChild(inputMessage);
-//     chat.appendChild(sendMessage);
-//     chat.appendChild(inputFile);
-//     chat.setAttribute('data-idContact', e.target.parentNode.id);
-//     chat.setAttribute('data-idPersonal', e.target.parentNode.parentNode.getAttribute('data-id'));
-
-//     btnSendMessage = document.getElementById('send-message');
-//     inpMessage = document.getElementById('message');
-//     btnSendMessage.addEventListener('click', sendMessageToContact);
-//     inpMessage.addEventListener('keyup', isTyping);
-
-//     messages.setAttribute('data-id', e.target.parentNode.id);
-
-//     getMessages(e.target.parentNode.id, e.target.parentNode.parentNode.getAttribute('data-id'));
-
-//     fileInput = document.getElementById('file-img');
-// }
 
 const getMessages = (idContact, myId) => {
     const containerChats = document.getElementById('chats');
@@ -130,32 +110,38 @@ const getMessages = (idContact, myId) => {
     });
 }
 
-const sendMessageToContact = () => {
+const sendMessageToContact = (e) => {
     const divBarMessage = document.getElementsByClassName('input_bar-web')[0];
     message = divBarMessage.children[0].value;
-
-    const idContact = document.getElementById('chats').getAttribute('data-id-contact');
-    const idPersonal = myId
-    const chatPersonal = document.getElementById('chats')
-    const date = new Date().toTimeString().replace(/.*(\d{2}:\d{2}:\d{2}).*/, "$1")
-    chatPersonal.innerHTML += `
-    <div class="out" style="display: none;">
-        <div class="out_p">
-            <p>${message}</p>
-        </div>
-        <div class="out_hour">
-            <p>${date}</p>
-        </div>
-    </div>`
-
+    if(message.length >= 1){
+        const idContact = document.getElementById('chats').getAttribute('data-id-contact');
+        const idPersonal = myId
+        const chatPersonal = document.getElementById('chats')
+        const date = new Date().toTimeString().replace(/.*(\d{2}:\d{2}:\d{2}).*/, "$1")
+        chatPersonal.innerHTML += `
+        <div class="out" style="display: none;">
+            <div class="out_p">
+                <p>${message}</p>
+            </div>
+            <div class="out_hour">
+                <p>${date}</p>
+            </div>
+        </div>`
     
-    socket.emit('message', {message, idContact, idPersonal, date});
-    divBarMessage.children[0].value = '';
-    divBarMessage.children[0].innerHTML = '';
+        const contactProfile = document.getElementById(idContact)
+        contactProfile.parentNode.nextElementSibling.children[0].innerText = message; 
+        
+        socket.emit('message', {message, idContact, idPersonal, date});
+        divBarMessage.children[0].value = '';
+        divBarMessage.children[0].innerHTML = '';
+    }
+
 }
 
 const isTyping = (e) => {
-    console.log(e.target.value)
+    if(e.keyCode == '13'){
+        sendMessageToContact();
+    }
     chatUserId = document.getElementById('chats').getAttribute('data-id-contact');
     nombreAmigo = document.getElementById(chatUserId);
     const data = {
@@ -180,26 +166,51 @@ const showUsers = (e) => {
     // This cycle for is used by add the users on the DOM
     if(usersChar.length > 0){
         for(let i = 0; i < usersChar.length; i++){
-            console.log(usersChar[i].message);
-            messageContent.innerHTML += `
-            <div class="message-in" data-id-contact="${usersChar[i].idUserFriend}"> 
-                <div id="img-in">
-                    <div id="userInPict"><img src="img/user.svg" ></div>
-                </div>
-                <div id="datos-in">
-                    <div id="name-in">
-                        <h3 id="${usersChar[i].idUserFriend}"><h3>${usersChar[i].username}</h3>
+            if(usersChar[i].username != ''){
+                if(typeof usersChar[i].message == 'undefined'){
+                    usersChar[i].message = '<strong>No le has enviado mensaje</strong>'
+                }
+                messageContent.innerHTML += `
+                <div class="message-in" data-id-contact="${usersChar[i].idUserFriend}"> 
+                    <div id="img-in">
+                        <div id="userInPict"><img src="img/user.svg" ></div>
                     </div>
-                    <div id="little-text">
-                        <p>${usersChar[i].message}</p>
+                    <div id="datos-in">
+                        <div id="name-in">
+                            <h3 id="${usersChar[i].idUserFriend}"><h3>${usersChar[i].username}</h3>
+                        </div>
+                        <div id="little-text">
+                            <p>${usersChar[i].message}</p>
+                        </div>
                     </div>
                 </div>
-            </div>
-            `
-            getAllId();            
+                `
+                
+                getAllId();
+            }
+        }
+    } else {
+        for(let i = 0; i < userFriends.length; i++){
+            if(typeof userFriends[i].message != 'undefined'){
+                console.log('xD')
+                messageContent.innerHTML += `
+                <div class="message-in" data-id-contact="${userFriends[i].idUserFriend}"> 
+                    <div id="img-in">
+                        <div id="userInPict"><img src="img/user.svg" ></div>
+                    </div>
+                    <div id="datos-in">
+                        <div id="name-in">
+                            <h3 id="${userFriends[i].idUserFriend}"><h3>${userFriends[i].username}</h3>
+                        </div>
+                        <div id="little-text">
+                            <p>${userFriends[i].message}</p>
+                        </div>
+                    </div>
+                </div>
+                `
+            }
         }
     }
-
 }
 
 const getLastMessage = () => {
@@ -252,20 +263,63 @@ const getLastMessage = () => {
                     console.log(addIn.parentNode.nextElementSibling.children[0].innerText = last1.msgContenido)
                 }
             }
-            // if(last1 > last2) {
-            //     console.log(response.res1[i][i])
-            //     // const addIn = document.getElementById(response.res1[i][i]);
-            // }
         }
+    })
+}
 
-        console.log(userFriends)
+const sendRequestToFriend = () => {
+    const emailFriend = document.getElementById('Sticky-agregarAmigo').value;
+    fetch('/api/verify-friend', {
+        method: 'post',
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({email: emailFriend})
+    })
+    .then(res => res.json())
+    .then(response => {
+        if(response.length != 0){
+            if(!document.getElementById(response[0].idUsuario)){
+                const messageContent = document.getElementById('message-content');
+                messageContent.innerHTML += `
+                <div class="message-in" data-id-contact="${response[0].idUsuario}"> 
+                    <div id="img-in">
+                        <div id="userInPict"><img src="img/user.svg" ></div>
+                    </div>
+                    <div id="datos-in">
+                        <div id="name-in">
+                            <h3 id="${response[0].idUsuario}">${response[0].nombreUsuario}</h3>
+                        </div>
+                        <div id="little-text">
+                            <p><strong>No le has enviado mensajes</strong></p>
+                        </div>
+                    </div>
+                </div>
+                `
+                getAllId();
+                fetch('/api/send-request-friend', {
+                    method: 'put',
+                    headers: {
+                        'Accept': 'application/json',
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(response)
+                })
+                .then(resp => resp.json())
+                .then(response => {
+                    console.log(response);
+                })
+            }
+        }
     })
 }
 
 //LISTENERS
 document.addEventListener('DOMContentLoaded', getAllId);
 document.addEventListener('DOMContentLoaded', getLastMessage);
-searchInput.addEventListener('input', showUsers)
+document.addEventListener('click', sendRequestToFriend);
+searchInput.addEventListener('input', showUsers);
 
 //SOCKETS ON
 
@@ -290,6 +344,8 @@ socket.on('message', (data) => {
             </div>
         </div>`
     }
+    const contactProfile = document.getElementById(data.idPersonal)
+    contactProfile.parentNode.nextElementSibling.children[0].innerText = data.message; 
 });
 
 socket.on('is-typing', (data) => {

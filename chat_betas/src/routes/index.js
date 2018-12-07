@@ -41,19 +41,21 @@ router.post('/', passport.authenticate('local-signin', {
 }));
 router.post('/registro', passport.authenticate('local-signup', {
     successRedirect: '/',
-    failureRedirect: '/registro',
+    failureRedirect: '/',
     failureFlash: true
 }));
 
 //THIS ROUTES WORK WHEN THE USER LOG IN THE PAGE
 router.get('/chat', middleware.authorization, controller.chat);
-router.post('/api/get-messages', controller.getMessages);
-router.post('/api/get-last-messages', controller.getLastMessages);
-
-
+router.post('/api/get-messages', middleware.authorization, controller.getMessages);
+router.post('/api/get-last-messages', middleware.authorization, controller.getLastMessages);
+router.get('/api/get-data-user', middleware.authorization, controller.getDataUser);
+router.put('/api/update-data-user', middleware.authorization, controller.updateDataUser);
+router.put('/api/update-pass-user', middleware.authorization, controller.updatePassUser);
+router.post('/api/verify-friend', middleware.authorization, controller.verifyFriend);
+router.put('/api/send-request-friend', middleware.authorization, controller.requestToFriend)
 //TEESTT
-router.get('/perfil', middleware.authorization, controller.profile);
 
-router.post('/imagen', multer(multerConf).single('photo'), controller.uploadImg);
+// router.post('/imagen', multer(multerConf).single('photo'), controller.uploadImg);
 
 module.exports = router;
