@@ -4,6 +4,7 @@ const btnSaveDataProfile = document.getElementsByClassName('buttonConfig')[3];
 const btnChangePassword = document.getElementsByClassName('buttonConfig')[2];
 const passwordInputs = document.getElementsByClassName('newPassword_inputs')[0];
 const btnChangePasswordConfig = document.getElementsByClassName('buttonConfig_two')[0];
+const btnEndSession = document.getElementById('CerrarSesion');
 
 let btnChangePasswordPress = false;
 
@@ -110,8 +111,24 @@ const changeToTrueOrFalse = () => {
     }
 }
 
+const endSession = () => {
+    alert('xD')
+    fetch('/api/end-session', {
+        method: 'delete',
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        },
+    })
+    .then(res => res.json())
+    .then(response => {
+        location.replace('/')
+    })
+}
+
 //LISTENERS
 document.addEventListener('DOMContentLoaded', dataProfile);
 btnSaveDataProfile.addEventListener('click', updateUserName);
 btnChangePassword.addEventListener('click', changeToTrueOrFalse);
 btnChangePasswordConfig.addEventListener('click', updatePassUser);
+btnEndSession.addEventListener('click', endSession)

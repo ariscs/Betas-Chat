@@ -15,7 +15,9 @@ passport.use('local-signup', new LocalStrategy({
     passwordField: 'contra',
     passReqToCallback: true
 }, async (req, correo, contra, done) => {
+    console.log(req.body.nomUsuario)
     const data = {
+        nombreUsuario: req.body.nomUsuario,
         correoUsuario: correo,
         passwordUsuario: bcrypt.hashSync(contra, 10)
     }

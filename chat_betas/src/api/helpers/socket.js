@@ -33,7 +33,8 @@ module.exports = (io) => {
                 socket.join(generateUniqueId(data)[1]);
                 room = generateUniqueId(data)[1];
             }
-        
+
+            socket.join(data.idPersonal);
             socket.broadcast.to(room).emit('conectado', room);
         });
 
@@ -54,6 +55,7 @@ module.exports = (io) => {
 
             pool.getConnection((err, connection) => {
                 if(err) throw err;
+                console.log(saveData)
                 connection.query('INSERT INTO mensaje SET ?', saveData, (err, result) => {
                     if(err) throw err;
                     connection.release();
@@ -70,6 +72,10 @@ module.exports = (io) => {
             }
 
             socket.broadcast.to(room).emit('is-typing', data)
+        });
+
+        socket.on('addNewUser', (data) => {
+            socket.broadcast.to(data[0].idUsuario).emit('addNewUser', data);
         })
     });
 };

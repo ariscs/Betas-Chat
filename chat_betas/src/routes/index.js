@@ -54,6 +54,7 @@ router.put('/api/update-data-user', middleware.authorization, controller.updateD
 router.put('/api/update-pass-user', middleware.authorization, controller.updatePassUser);
 router.post('/api/verify-friend', middleware.authorization, controller.verifyFriend);
 router.put('/api/send-request-friend', middleware.authorization, controller.requestToFriend)
+router.delete('/api/end-session', middleware.authorization, controller.endSession);
 //TEESTT
 
 // router.post('/imagen', multer(multerConf).single('photo'), controller.uploadImg);

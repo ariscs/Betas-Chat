@@ -5,18 +5,33 @@
 }
 
 /* Version Escritorio */
-@media (min-width: 768px){   
-    .Principal-home{
-          background-image: linear-gradient( rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3) ), url('../img/fondo1.png') ;
-        height: 100%;
-        width: 100%;
+@media (min-width: 768px){
 
-        position: absolute;
-        display:flex;
+    /* Esto evita problemas con las vistas*/
+    #chats{
+        display: initial !important;
+    }
 
-        align-items: center;
+    #chatsButton{
+        content: url("../img/speechBlue.svg") !important;
+    }
 
-<<<<<<< HEAD
+    #config{
+        display: none !important;
+    }
+
+    #configButton{
+        content: url("../img/settingsGray.svg") !important;
+    }
+
+    #contacts{
+        display: none !important;
+    }
+
+    #contactsButton{
+        content: url("../img/phone-bookGray.svg") !important;
+    }
+
     #chatsMovil{
         display: none !important;
     }
@@ -57,94 +72,90 @@
   justify-content: center;
   flex-wrap: wrap;
    
-=======
-        }
-        .image{
-            height: 0px;
-            width: 0px;
-        }
-
-       #Principal-contacts{
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-    display: initial !important;
-    height: 90%;
-    width: 22%;
-    background-color: #F3F3F3;
-    margin-left: 5%;
-    position: absolute;
-    display: flex !important;
-    justify-content: center;
-    flex-wrap: wrap;
-     
->>>>>>> parent of 72bdaf4... Fusion de manera exitosa intento #8953
 }
 .ourUser{
-    display: flex;
-    align-items: center;
-    margin-top: 4px;
-    width: 98%;
-    height: 9%;
-     border-bottom: 1px solid #BBBBBB;
+  display: flex;
+  align-items: center;
+  margin-top: 4px;
+  width: 98%;
+  height: 9%;
+   border-bottom: 1px solid #BBBBBB;
 }
 #ourUser-picture{
-    margin-left: 5%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 42px;
-    height: 42px;
-   
-    border-radius: 50%;
-  display: inline-block;
+  margin-left: 5%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+ 
+  border-radius: 50%;
+display: inline-block;
 }
 #userPict>img{
-    width: 100%;
-    height: 100%;
+  width: 100%;
+  height: 100%;
 }
 #userPictt>img{
-    width: 100%;
-    height: 100%;
-}
-
-#ajustes{
-    width: 25px;
-    height: 25px;
   cursor: pointer;
-    margin-left: 84%;
-    position: absolute;
+  width: 100%;
+  height: 100%;
 }
-.search-bar{
+#backPict{
+  
+  cursor: pointer;
+  
+  width: 35px;
+  height: 35px;
+}
+#back-web{
+  margin-top: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 60%;
+  height: 60%;
+}
+#ajustes{
+  width: 20px;
+  height: 20px;
+  
+  margin-left: 84%;
+  position: absolute;
+}
+#config-web{
+  width: 100%;
+  height: 100%;
+}
 
-    width: 98%;
-    height: 9%;
-   background-color: #EEEEEE;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+#search-bar{
+ 
+  width: 98%;
+  height: 9%;
+ background-color: #EEEEEE;
+  display: flex ;
+  align-items: center;
+  justify-content: center;
 
 }
 #search-img{
-  border-top-left-radius: 10px;
-   border-bottom-left-radius: 10px;
-    width: 15%;
-    height: 70%;
-    margin-left: 3%;
-    background-color: white;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+border-top-left-radius: 10px;
+ border-bottom-left-radius: 10px;
+  width: 15%;
+  height: 70%;
+  margin-left: 3%;
+  background-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
 }
 #search-img>img{
-    width: 60%;
-    height: 60%;
-    cursor: pointer;
+  width: 60%;
+  height: 60%;
+  cursor: pointer;
 }
 #search-content{
-<<<<<<< HEAD
   border-left: 1px solid #BBBBBB;
   width: 60%;
   height: 70%;
@@ -291,34 +302,19 @@ text-align: center;
     border-radius: 5px;
 }
 #Perfil_Image{
-=======
-    border-left: 1px solid #BBBBBB;
-    width: 80%;
-    height: 70%;
-    margin-right: 3%;
-     background-color: white;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-       border-top-right-radius: 10px;
-       border-bottom-right-radius: 10px;
->>>>>>> parent of 72bdaf4... Fusion de manera exitosa intento #8953
     
+    padding: 10px;
+    width: 60px;
+    height: 60px;
+    background-color: white;
 }
-#search-input{
-
-    margin-left: 2%;
-    width: 100%;
-    height: 90%;
-    margin-right: 3%;
-    border: none;
-    outline: none;
-   
-     font-size: 15px;  
+#User_Settings_Img{
     
+    width: 100%;
+    height: 100%;
 }
 #message-content{
-
+    overflow-y: scroll;
 width: 98%;
 height: 80%;
 background-color: #EEEEEE;
@@ -329,77 +325,88 @@ flex-direction: column;
 
 }
 .message-in{
-    margin-left: 2%;
-    margin-top: 5px;
-    background-color: white;
-    width: 95%;
-    height: 10%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  cursor: pointer;
+  margin-left: 2%;
+  margin-top: 5px;
+  background-color: white;
+  width: 95%;
+  height: 10%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#AddUser{
+  width: 56px;
+  height: 56px;
+  cursor: pointer;
+  margin-left: 53%;
+}
+#AddUser-img{
+  width: 100%;
+  height: 100%;
 }
 #img-in{
-    height: 80%;
-    width: 15%;
-     border-radius: 50%;
-  display: inline-block;
-   
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  height: 80%;
+  width: 15%;
+   border-radius: 50%;
+display: inline-block;
+ 
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 #backimg-hide{
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 #backimg-hide>img{
-      cursor: pointer;
+    cursor: pointer;
 margin-top: 10px;
-    width: 25px;
-    height: 25px;
+  width: 25px;
+  height: 25px;
 }
 #userInPict>img{
 
-    width: 90%;
-    height: 90%;
+  width: 90%;
+  height: 90%;
 
 }
 #datos-in{
 
-    margin-left: 10px;
+  margin-left: 10px;
 
-      height: 100%;
-    width: 70%;
+    height: 100%;
+  width: 70%;
 
 }
 #name-in{
-    display: flex;
-    align-items: center;
-    
-    width: auto;
-    height: 40%;
-    font-size: 15px;
+  display: flex;
+  align-items: center;
+  
+  width: auto;
+  height: 40%;
+  font-size: 15px;
 }
 #little-text{
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    margin-left: 3%;
-    width: auto;
-    height: 60%;
-   
-    font-size: 13px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  margin-left: 3%;
+  width: auto;
+  height: 60%;
+ 
+  font-size: 13px;
 }
 .container {
-    height: 90%;
-    width: 68%;
-    position: absolute;
-   margin-left:27.1%; 
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
+  height: 90%;
+  width: 68%;
+  position: absolute;
+ margin-left:27.1%; 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
 }
 .sticky{
    margin-left: 24%;
@@ -455,218 +462,214 @@ width: 3%;
     cursor: pointer;
 }
 .top_banner-web {
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-    background-color: #F3F3F3;
-    width: 100%;
-    height: 8%;
-    top: 0px;
-    display: initial !important;
-    display: flex !important;
-    align-items: center;
-    justify-content: start;
-    margin-bottom: 400px;
-   position: absolute;
-   
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  background-color: #F3F3F3;
+  width: 100%;
+  height: 8%;
+  top: 0px;
+  display: initial !important;
+  display: flex !important;
+  align-items: center;
+  justify-content: start;
+  margin-bottom: 400px;
+ position: absolute;
+ 
 }
 
 .pBack{
-    width: 24px;
-    height: 100%;
-    display: none;
-    align-items: center;
-    justify-content: center;
+  width: 24px;
+  height: 100%;
+  display: none;
+  align-items: center;
+  justify-content: center;
 }
 
 .pBack>img{
-    height: 24px !important;
-    width: 24px !important;
+  height: 24px !important;
+  width: 24px !important;
 }
 
 .pPic{
-     margin-left: 3%;
-    width: 45px;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+   margin-left: 3%;
+  width: 45px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .userPic{
 
-    height: 32px;
-    width: 32px;
-    border-radius: 100%;
+  height: 32px;
+  width: 32px;
+  border-radius: 100%;
 }
-.
 
 .pInfo>h1{
-    font-size: 16px;
-    padding-left: 5px;
+  font-size: 16px;
+  padding-left: 5px;
 }
 
 .main_container {
-    
-    margin-bottom: 50px;
-    position: relative;
-    width: 100%;
-    height: 85%;
-   
-    background-image: linear-gradient( rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1) ), url('../img/prueba.png') ;
-    background-attachment: fixed;
-    background-size: cover;
-    display: flex;
-    flex-direction: column;
+  
+  margin-bottom: 50px;
+  position: relative;
+  width: 100%;
+  height: 85%;
+  overflow-y: scroll;
+  background-image: linear-gradient( rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1) ), url('../img/prueba.png') ;
+  background-attachment: fixed;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
 }
 
 .in{
 
-    height: auto;
-    width: calc(100% - 80px);
-    background-color: #F3F3F3;
-  
-    border-radius: 12px;
-    margin-left: 8px;
-    padding-left: 8px;
-    padding-right: 8px;
-    padding-top: 6px;
-    padding-bottom: 6px;
-    margin-top: 15px;
-    max-width: 400px;
+  height: auto;
+  width: calc(100% - 80px);
+  background-color: #F3F3F3;
+
+  border-radius: 12px;
+  margin-left: 8px;
+  padding-left: 8px;
+  padding-right: 8px;
+  padding-top: 6px;
+  padding-bottom: 6px;
+  margin-top: 15px;
+  max-width: 400px;
 display: initial !important;
-    display: flex !important;
-    align-items: center;
-    justify-content: flex-start;
+  display: flex !important;
+  align-items: center;
+  justify-content: flex-start;
 }
 .in_p{
-    overflow: hidden;
-    padding: 10px;
-    height: 93%;
-    width: 100%;
+  overflow: hidden;
+  padding: 10px;
+  height: 93%;
+  width: 100%;
 }
 .in_p>p{
-    cursor: text;
-    font-size: 14px;
+  cursor: text;
+  font-size: 14px;
 }
 
 .in_hour{
-    height: 100%;
-    width: 60px;
-    display: flex;
-    justify-content: flex-end;
-    align-items: flex-end;
+  height: 100%;
+  width: 60px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
 }
 
 .in_hour>p{
-    font-size: 12px;
-    color: #707070;
+  font-size: 12px;
+  color: #707070;
 }
 
 .out{
-    height: auto;
-    width: calc(100% - 80px);
-    background-color: #30499B;
-    border-radius: 12px;
-    padding-left: 8px;
-    padding-right: 8px;
-    padding-top: 6px;
-    padding-bottom: 6px;
-    margin-top: 15px;
-    margin-left: auto;
-    margin-right: 8px;
-    max-width: 400px;
+  height: auto;
+  width: calc(100% - 80px);
+  background-color: #30499B;
+  border-radius: 12px;
+  padding-left: 8px;
+  padding-right: 8px;
+  padding-top: 6px;
+  padding-bottom: 6px;
+  margin-top: 15px;
+  margin-left: auto;
+  margin-right: 8px;
+  max-width: 400px;
 display: initial !important;
-    display: flex !important;
-    align-items: center;
-    justify-content: flex-start;
+  display: flex !important;
+  align-items: center;
+  justify-content: flex-start;
 }
 .out_p{
-    overflow: hidden;
-    padding: 10px;
-    height: 93%;
-    width: 100%;
+  overflow: hidden;
+  padding: 10px;
+  height: 93%;
+  width: 100%;
 
 }
 .out_p>p{
 
-    font-size: 14px;
-    color: white;
+  font-size: 14px;
+  color: white;
 }
 
 .out_hour{
-    height: 100%;
-    width: 60px;
-    margin-right: 5px;
-    display: flex;
-    justify-content: flex-start;
-    align-items: flex-end;
+  height: 100%;
+  width: 60px;
+  margin-right: 5px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-end;
 }
 
 .out_hour>p{
-    font-size: 12px;
-    color: #F3F3F3;
+  font-size: 12px;
+  color: #F3F3F3;
 }
 
 .input_banner-web{
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-    position: absolute;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  position: absolute;
 
-    margin-top: 10px;
-    background-color: #f3f3f3;
-    width: 100%;
-    height: 8%;
-    bottom: 0px;
+  margin-top: 10px;
+  background-color: #f3f3f3;
+  width: 100%;
+  height: 8%;
+  bottom: 0px;
 
-    display: flex !important;
-  
-     align-items: center;
-    justify-content: center;
+  display: flex !important;
+
+   align-items: center;
+  justify-content: center;
 }
 
 .input_bar-web{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-grow: 1;
-    
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-grow: 1;
+  
 }
 
 .input_bar-web>input{
-    border: none;
-    height: 30px;
-    width: calc(100% - 16px);
-    border: 1px solid #707070;
-    border-radius: 12px;
-    outline: none;
-    box-sizing: border-box;
-    box-shadow: none;
-    padding-left: 6px;
-    padding-right: 6px;
+  border: none;
+  height: 30px;
+  width: calc(100% - 16px);
+  border: 1px solid #707070;
+  border-radius: 12px;
+  outline: none;
+  box-sizing: border-box;
+  box-shadow: none;
+  padding-left: 6px;
+  padding-right: 6px;
 }
 
 .pic{
-    width: 45px;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  width: 45px;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .pic>img{
-    cursor: pointer;
-    height: 24px;
-    width: 24px;
+  cursor: pointer;
+  height: 24px;
+  width: 24px;
 }
 
 
-.search_bar{
-    display: none;
-}
 
 
 
@@ -856,9 +859,10 @@ display: initial !important;
 
 @media (min-width: 100px) and (max-width: 767px){
     .Principal-home{
-height: 100%;
-    width: 100%;
-}
+        height: 100%;
+        width: 100%;
+    }
+
     .container {
         height: 100%;
         width: 100%;
@@ -960,6 +964,7 @@ height: 100%;
         background-color: #f3f3f3;
         display: flex;
         align-items: center;
+        margin-bottom: 5px;
     }
     
     .letter>p{
@@ -967,7 +972,6 @@ height: 100%;
         margin-left: 15px;
     }
 
-<<<<<<< HEAD
     .message-in{
         width: 100%;
         height: 70px;
@@ -1074,8 +1078,6 @@ height: 100%;
         color: #30499B;
     }
 
-=======
->>>>>>> parent of 72bdaf4... Fusion de manera exitosa intento #8953
     /*Settings*/
     .main_containerConfig{
         position: absolute;

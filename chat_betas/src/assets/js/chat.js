@@ -12,9 +12,11 @@ var time;
 var setTimeOn;
 var fileInput;
 var userFriends = [];
+var haveUser = false
 
 //FUNCTIONS
 const createRoomSocket = (id) => {
+    console.log(myId)
     const data = {
         idContact: id,
         idPersonal: myId 
@@ -43,7 +45,7 @@ const createChat = (e) => {
         idContact = e.target.parentNode.parentNode;
     } else if (e.target.id == 'little-text') {
         idContact = e.target.parentNode.parentNode;
-    } else if(e.target.tagName == 'P' || e.target.tagName == 'H3') {
+    } else if(e.target.tagName == 'P' || e.target.tagName == 'H3' || e.target.tagName == 'STRONG') {
         idContact = e.target.parentNode.parentNode.parentNode
     }
 
@@ -54,9 +56,9 @@ const createChat = (e) => {
 
     const roomChat = document.getElementById('contacts')
     if(document.getElementById(idContact).nextElementSibling == null){
-        console.log(roomChat.previousElementSibling.previousElementSibling.previousElementSibling.children[2].innerHTML = `<h1> ${document.getElementById(idContact).innerText} </h1>`)
+        roomChat.previousElementSibling.previousElementSibling.previousElementSibling.children[2].innerHTML = `<h1> ${document.getElementById(idContact).innerText} </h1>`
     } else {
-        console.log(roomChat.previousElementSibling.previousElementSibling.previousElementSibling.children[2] = `<h1> ${document.getElementById(idContact).nextElementSibling.innerText} </h1>`)
+        roomChat.previousElementSibling.previousElementSibling.previousElementSibling.children[2] = `<h1> ${document.getElementById(idContact).nextElementSibling.innerText} </h1>`
     }
 
     
@@ -156,7 +158,7 @@ const isTyping = (e) => {
 const showUsers = (e) => {
     const messageContent = document.getElementById('message-content');
     messageContent.innerHTML = '';
-    const usersChar = []
+    const usersChar = [];
     //This cycle for is used by add the users
     for(let i = 0; i < userFriends.length; i++){
         if(userFriends[i].username.indexOf(e.target.value) != '-1'){
@@ -167,9 +169,6 @@ const showUsers = (e) => {
     if(usersChar.length > 0){
         for(let i = 0; i < usersChar.length; i++){
             if(usersChar[i].username != ''){
-                if(typeof usersChar[i].message == 'undefined'){
-                    usersChar[i].message = '<strong>No le has enviado mensaje</strong>'
-                }
                 messageContent.innerHTML += `
                 <div class="message-in" data-id-contact="${usersChar[i].idUserFriend}"> 
                     <div id="img-in">
@@ -180,7 +179,7 @@ const showUsers = (e) => {
                             <h3 id="${usersChar[i].idUserFriend}"><h3>${usersChar[i].username}</h3>
                         </div>
                         <div id="little-text">
-                            <p>${usersChar[i].message}</p>
+                            <p>${usersChar[i].msgContenido}</p>
                         </div>
                     </div>
                 </div>
@@ -189,27 +188,10 @@ const showUsers = (e) => {
                 getAllId();
             }
         }
+    } else if(!haveUser){
+        messageContent.innerHTML = '<h3 id="no-friends">No tienes amigos agregado</h3>'
     } else {
-        for(let i = 0; i < userFriends.length; i++){
-            if(typeof userFriends[i].message != 'undefined'){
-                console.log('xD')
-                messageContent.innerHTML += `
-                <div class="message-in" data-id-contact="${userFriends[i].idUserFriend}"> 
-                    <div id="img-in">
-                        <div id="userInPict"><img src="img/user.svg" ></div>
-                    </div>
-                    <div id="datos-in">
-                        <div id="name-in">
-                            <h3 id="${userFriends[i].idUserFriend}"><h3>${userFriends[i].username}</h3>
-                        </div>
-                        <div id="little-text">
-                            <p>${userFriends[i].message}</p>
-                        </div>
-                    </div>
-                </div>
-                `
-            }
-        }
+        messageContent.innerHTML = '<h3 id="no-match">No hay coincidencias</h3>'
     }
 }
 
@@ -224,44 +206,19 @@ const getLastMessage = () => {
     })
     .then(res => res.json())
     .then(response => {
-        test = response;
-        var last1;
-        var last2;
-        for(let i = 0; i < response.res2.length; i++){
-            response.res2[i].sort((a, b) => a.idMensaje - b.idMensaje);
-        }
-        for(let i  = 0; i < response.res1.length; i++){
-            response.res1[i].sort((a, b) => a.idMensaje - b.idMensaje);
-        }
-        for(let i = 0; i < response.res2.length; i++){
+        for(let i = 0; i < response.length; i++){
             let addIn;
-            last1 = response.res1[i][(response.res1[i].length - 1)];
-            last2 = response.res2[i][(response.res2[i].length - 1)];
-            
-            if(typeof last1 == 'undefined' && typeof last2 != 'undefined'){
-                console.log(last2.idMensaje)
-                addIn = document.getElementById(last2.idUsuarioRemitente)
-                userFriends[i].message = last2.msgContenido;
-                console.log(addIn.parentNode.nextElementSibling.children[0].innerText = last2.msgContenido)
-            } 
-            if (typeof last2 == 'undefined' && typeof last1 != 'undefined'){
-                console.log(last1.idMensaje)
-                addIn = document.getElementById(last1.idUsuarioEmisor)
-                userFriends[i].message = last1.msgContenido;
-                console.log(addIn.parentNode.nextElementSibling.children[0].innerText = last1.msgContenido)
+            if(response[i].length == 1) {
+                userFriends[i].msgContenido = response[i][0].msgContenido;
+            } else {
+                userFriends[i].msgContenido = 'Sin mensajes'
             }
-            if(typeof last2 != 'undefined' && typeof last1 != 'undefined'){
-                if(last2.idMensaje > last1.idMensaje){
-                    console.log(last2.idMensaje);
-                    addIn = document.getElementById(last2.idUsuarioRemitente)
-                    userFriends[i].message = last2.msgContenido;
-                    console.log(addIn.parentNode.nextElementSibling.children[0].innerText = last2.msgContenido)
-                } else if(last1.idMensaje > last2.idMensaje){
-                    console.log(last1.idMensaje)
-                    addIn = document.getElementById(last1.idUsuarioEmisor)
-                    userFriends[i].message = last1.msgContenido;
-                    console.log(addIn.parentNode.nextElementSibling.children[0].innerText = last1.msgContenido)
-                }
+            if(userFriends[i].idUserFriend != '' && userFriends[i].username != ''){
+                haveUser = true
+                addIn = document.getElementById(userFriends[i].idUserFriend)
+                addIn.parentNode.nextElementSibling.children[0].innerHTML = userFriends[i].msgContenido
+            } else {
+                userFriends.pop();
             }
         }
     })
@@ -292,12 +249,11 @@ const sendRequestToFriend = () => {
                             <h3 id="${response[0].idUsuario}">${response[0].nombreUsuario}</h3>
                         </div>
                         <div id="little-text">
-                            <p><strong>No le has enviado mensajes</strong></p>
+                            <p>No le has enviado mensajes</p>
                         </div>
                     </div>
                 </div>
                 `
-                getAllId();
                 fetch('/api/send-request-friend', {
                     method: 'put',
                     headers: {
@@ -308,8 +264,15 @@ const sendRequestToFriend = () => {
                 })
                 .then(resp => resp.json())
                 .then(response => {
-                    console.log(response);
+                    const deleteMessageNoFriends = messageContent.children[0];
+                    haveUser = true;
+                    if(deleteMessageNoFriends.tagName == 'H3'){
+                        deleteMessageNoFriends.remove();
+                    }
+                    getAllId();
                 })
+                response[0].nombreUsuario = document.getElementById('myUserName').getAttribute('data-myUser')
+                socket.emit('addNewUser', response)
             }
         }
     })
@@ -348,33 +311,52 @@ socket.on('message', (data) => {
     contactProfile.parentNode.nextElementSibling.children[0].innerText = data.message; 
 });
 
-socket.on('is-typing', (data) => {
-    time = 2000;
-    const tag = document.getElementById(data.idContact)
-    let respaldoTexto;
-    console.log(tag.parentNode.nextElementSibling.children[0].innerText)
-    if(document.getElementsByClassName('typing').length < 1){
-        let p = document.createElement('p');
-        p.setAttribute('class', 'typing');
-        p.innerText = data.message;
-        p.style.textAlign = 'center';
-        let p2 = document.createElement('p');
-        p2.setAttribute('class', 'typing');
-        p2.innerText = data.message;
-        p2.style.textAlign = 'center';
-        if(messages.getAttribute('data-id') == data.idPersonal){
-            messages.appendChild(p);
-        }
-        document.getElementById(data.idPersonal).appendChild(p2);
-    }
-    if(!setTimeOn){
-        setTimeOn = true;
-        setTimeout(() => {
-            setTimeOn = false;
-            const typingInput = document.getElementsByClassName('typing');
-            for(let i = 0; i < typingInput.length; i++){
-                typingInput[i].remove();
-            }
-        }, time);
-    }
-})
+// socket.on('is-typing', (data) => {
+//     time = 2000;
+//     const tag = document.getElementById(data.idContact)
+//     let respaldoTexto;
+//     console.log(tag.parentNode.nextElementSibling.children[0].innerText)
+//     if(document.getElementsByClassName('typing').length < 1){
+//         let p = document.createElement('p');
+//         p.setAttribute('class', 'typing');
+//         p.innerText = data.message;
+//         p.style.textAlign = 'center';
+//         let p2 = document.createElement('p');
+//         p2.setAttribute('class', 'typing');
+//         p2.innerText = data.message;
+//         p2.style.textAlign = 'center';
+//         if(messages.getAttribute('data-id') == data.idPersonal){
+//             messages.appendChild(p);
+//         }
+//         document.getElementById(data.idPersonal).appendChild(p2);
+//     }
+//     if(!setTimeOn){
+//         setTimeOn = true;
+//         setTimeout(() => {
+//             setTimeOn = false;
+//             const typingInput = document.getElementsByClassName('typing');
+//             for(let i = 0; i < typingInput.length; i++){
+//                 typingInput[i].remove();
+//             }
+//         }, time);
+//     }
+// })
+
+socket.on('addNewUser', (data) => {
+    console.log(data)
+    const messageContent = document.getElementById('message-content');
+    messageContent.innerHTML += `
+    <div class="message-in" data-id-contact="${data[0].idUsuario}"> 
+        <div id="img-in">
+            <div id="userInPict"><img src="img/user.svg" ></div>
+        </div>
+        <div id="datos-in">
+            <div id="name-in">
+                <h3 id="${data[0].idUsuario}">${data[0].nombreUsuario}</h3>
+            </div>
+            <div id="little-text">
+                <p><strong>Te ha añadido como amigo</strong></p>
+            </div>
+        </div>
+    </div>
+    `})

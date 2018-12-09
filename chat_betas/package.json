@@ -1,5 +1,5 @@
 {
-  "name": "Chat_alfas",
+  "name": "chat_betas",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -16,7 +16,6 @@
     "body-parser": "^1.18.3",
     "connect-flash": "^0.1.1",
     "ejs": "^2.6.1",
-    "ejs-mate": "^3.0.0",
     "express": "^4.16.4",
     "express-myconnection": "^1.0.4",
     "express-session": "^1.15.6",
