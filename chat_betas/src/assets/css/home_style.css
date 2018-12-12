@@ -7,6 +7,9 @@
 /* Version Escritorio */
 @media (min-width: 768px){
 
+  #title-banner{
+      color: transparent;
+  }
     /* Esto evita problemas con las vistas*/
     #chats{
         display: initial !important;
@@ -43,7 +46,7 @@
     /* ... */
     
     .Principal-home{
-        background-image: linear-gradient( rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3) ), url('../img/fondo1.png') ;
+        /* background-image: linear-gradient( rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3) ), url('../img/fondo1.png') ; */
         height: 100%;
         width: 100%;
         position: absolute;
@@ -199,13 +202,13 @@
     }
 
     #Configuracion-web{
-        width: 80%;
-        height: 80%;
+        width: 90%;
+        height: 86%;
         display: flex;
         justify-content: center;
         align-items: center;
-        background-color: white;
-        border-radius: 10px;
+        background-color: #FAFAFA;
+        
         padding: 10px;
         text-align: center;
     }
@@ -214,7 +217,7 @@
         overflow-y: scroll;
         width: 98%;
         height: 75%;
-        background-color: #EEEEEE;
+        background-color: #FAFAFA;
         display: flex;
         justify-content: flex-start;
         flex-direction: column;
@@ -242,7 +245,7 @@
     }
 
     .Cerrar_Perfil_Web{
-        margin-top: 37%;
+        margin-top: 26%;
         margin-left: 26%;
         display: flex;
         align-items: center;
@@ -304,12 +307,27 @@
         border: none;
         border-radius: 5px;
     }
+    #Upload{
+        margin-left: 10px;
+        color: transparent;
+        width: auto;
+      align-content: center;
+      justify-items: center;
+      flex-wrap: wrap;
+       display: flex;
+       flex-direction: column;
+       
+    }
+    #Upload-input{
+        margin-bottom: 10%;
+        margin-left: 33%;
+    }
 
     #Perfil_Image{        
         padding: 10px;
         width: 60px;
         height: 60px;
-        background-color: white;
+        
     }
 
     #User_Settings_Img{        
@@ -321,23 +339,26 @@
         overflow-y: scroll;
         width: 98%;
         height: 80%;
-        background-color: #EEEEEE;
+        background-color: #FAFAFA;
         display: flex;
         justify-content: flex-start;
         flex-direction: column;
     }
 
+
     .message-in{
         cursor: pointer;
         margin-left: 2%;
         margin-top: 5px;
-        background-color: white;
+        background-color:transparent;
         width: 95%;
         height: 10%;
         display: flex;
         justify-content: center;
         align-items: center;
+        border: #30499B
     }
+    #message-content :hover{background: #30499B;}
 
     #AddUser{
         width: 56px;
@@ -384,7 +405,41 @@
         height: 100%;
         width: 70%;
     }
+   #datos-in-solicitud{
+    margin-left: 10px;
+    height: 100%;
+    width: 40%;
+   
+}
 
+#aceptarorechazar>{
+ width: 
+ display: flex;
+ flex-direction: row;
+   
+    background-color: yellow;
+  
+}
+#accept{
+    width: 30px;
+    height: 30px;
+    background-color: red;
+}
+#accept>img{
+    width: 100%;
+    height: 100%;
+ 
+}
+#decline>img{
+    width: 100%;
+    height: 100%;
+ 
+}
+#decline{
+    width: 30px;
+    height: 30px;
+    background-color: white;
+}
     #name-in{
         display: flex;
         align-items: center;    
@@ -417,8 +472,8 @@
     .sticky{
         margin-left: 24%;
         margin-bottom: 30%;
-        width: 300px;
-        height: 200px;
+        width: 250px;
+        height: 100px;
         position: sticky;
         background-color:#EEEEEE;
         border:1px solid #BBBBBB;
@@ -426,18 +481,22 @@
         align-items: center;
         justify-content: center;
     }
-
+  #Letrero{
+    width: 200px;
+    height: 150px;
+    margin-right: 30%;
+  }
     #Sticky-Input{  
         text-align: center;
-        margin-left: 6.25%;
+        margin-left: 4.25%;
         display: flex;
         align-items: center;
         flex-direction: column;
         justify-content: center;
         background-color: white;
-        border-radius: 10px;
+        border-radius: 3px;
         height: 80%;
-        width: 85%;
+        width: 90%;
     }
 
     #Sticky-Close{
@@ -448,11 +507,11 @@
 
     #Sticky-aceptar{
         margin-top: 10px;
-        height: 15%;
-        width: 35%;
+        height: 30px;
+        width: 65px;;
         color: white;
         border: none;
-        border-radius: 10px;
+        border-radius:5px;
         background-color: #30499B;
     }
     
@@ -464,8 +523,15 @@
     }
 
     #close-img{
-        width: 20px;
-        height: 20px;
+        width: 15px;
+        height: 15px;
+        margin-left: 92%;
+        margin-bottom: 20%;
+        cursor: pointer;
+    }
+    #aceptarorechazar-buttons{
+        width:25px;
+        height: 25px;
         margin-left: 92%;
         margin-bottom: 20%;
         cursor: pointer;
@@ -682,29 +748,33 @@
         position: absolute;
         display: flex;
         align-items: center;
-        justify-content: center;
+        justify-content: right;
         background-image: linear-gradient( rgba(0, 0, 0, 0), rgba(0, 0, 0, 0) ), url('../img/1.jpg') ;
         background-repeat: no-repeat;
     }
 
     #central{
-        width: 350px;
-        height: 550px;
+        width: 27%;
+        height: 100%;
         background-color: #F3F3F3;
         display: flex;
         flex-direction: column;
-        justify-content: space-evenly;
+        
         align-items: center;
-        border-radius: 18px;
-        box-shadow: 0px 0px 16px #707070;
+        flex-wrap: wrap;
+        
+           
     }
 
     #arriba{
+       margin-top: 80px;
         height: auto;
         width: 100%;
         display: flex;
         align-items: center;
         justify-content: center;
+        font-size: 40px;
+        font-family: 'Bungee', cursive;
     }
 
     #arriba>img{
@@ -721,47 +791,53 @@
     }
 
     #abajo{
-        height: auto;
+        height: 40%;
         width: 100%;
         display: flex;
         align-items: center;
         justify-content: center;
         flex-wrap: wrap;
+        flex-direction: column;
         text-align: center;
         font-size: 15px;
+        
     }
+
 
     .mandar{
         border: none;
-        margin-top: 100px;
-        height: 45px;
-        width: 125px;
-        background-color:#30499B;
-        border-radius: 25px;
+        margin-top: 20%;
+        height: 35px;
+        width: 105px;
+        background-color: white;
+        border-radius: 10px;
         font-size: 16px;
-        color: white;
+        color: #3E73D5;
         cursor: pointer;
+        border: 2px solid #3E73D5;
+        position: absolute;
     }
 
     .inputDatos{
         margin-bottom: 20px;
-        height: 30px;
+        height: 35px;
         width: 250px;
         border:none;
         outline: none;
         background-color: transparent;
         border-bottom: 1px solid #707070;
-        font-size: 16px;    
+        font-size: 18px;    
     }
 
     input[type=checkbox].toggle-switch {
+        margin-top:130px;
         appearance: none;
         -moz-appearance: none;
         -webkit-appearance: none;
         width: 170px;
         height: 2.38em;
         border-radius: 1em;
-        background-color:#b7b7bb ;
+        background-color:#D6D3DE;
         outline: 0;
         cursor: pointer;
         transition: background-color 0.05s ease-in-out;
@@ -769,7 +845,7 @@
     }
 
     input[type=checkbox].toggle-switch:checked {
-        background-color: #b7b7bb;
+        background-color: #D6D3DE;
     }
 
     input[type=checkbox].toggle-switch::after {
@@ -780,7 +856,7 @@
         content: '';
         width: 7em;
         height: 2.38em;
-        background-color: #30499B;
+        background-color: #3E73D5;
         content: "Registro";
         border-radius: 1em;
         position: absolute;
@@ -959,8 +1035,10 @@
         height: 70px;
         display: flex;
         justify-content: flex-start;
-        align-items: center
+        align-items: center;
+        
     }
+   
 
     #img-in{
         width: 88px;
@@ -1254,6 +1332,7 @@
         display: flex;
         align-items: center;
         justify-content: center;
+      
     }
 
     #arriba>img{
@@ -1264,6 +1343,7 @@
     #titulo{
         margin-top: 10%;
         font-family: 'Roboto', sans-serif;
+        color: #D6D3DE;
     }
 
     #enmedio{        

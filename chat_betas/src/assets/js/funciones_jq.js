@@ -4,15 +4,23 @@ $( ".toggle-switch" ).click(function() {
 	if ($("#RepetirContraseña").length) {
 		$('#registro-button').replaceWith('<input type="submit" id="login-button" class ="mandar" value="Login">');
 		$('#RepetirContraseña').remove();
+
 		$('#MandarCorreo').replaceWith('<input type="text" class="inputDatos" id="Correo" placeholder="Correo electronico">');
 		$('#MandarContraseña').replaceWith('<input type="password" class="inputDatos" id="Contraseña" placeholder="Contraseña">');
 	}else{
+		
 		$('#login-button').replaceWith('<input type="submit" id="registro-button" class ="mandar" value="Registrar">');		
 		$('.mandar').before('<input type="password" class="inputDatos" id="RepetirContraseña" placeholder="Repita la Contraseña">');
-		$('.mandar').before('<input type="text" class="inputDatos" id="RegistroNombreUsuario" placeholder="Nombre de Usuario">');
 		$('#Correo').replaceWith('<input type="text" class="inputDatos" id="MandarCorreo" placeholder="Correo electronico">');
 		$('#Contraseña').replaceWith('<input type="password" class="inputDatos" id="MandarContraseña" placeholder="Contraseña">');
 	}	
+	if($("#RepetirContraseña").length){
+		$('#MandarContraseña').before('<input type="text" class="inputDatos" id="Username" placeholder="Usuario">');
+	}
+	else
+	{
+		$('#Username').remove();
+	}
 });
 
 
@@ -99,7 +107,7 @@ $( "#IniciarConversacion" ).click(function() {
 	else{
 	
 	$('#BusquedaContactos').css("display","initial");  
-	$('#search-bar').after(' <h3 id="Contacts-tittle">Contacts</h3> ');
+	$('#search-bar').after(' <h3 id="Contacts-tittle">Solicitdes de Amistad</h3> ');
 	$('#Configuracion-web').hide();
 	$('#message-content').hide();
 
