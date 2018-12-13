@@ -46,6 +46,7 @@
     /* ... */
     
     .Principal-home{
+        background-color: #333333;
         /* background-image: linear-gradient( rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3) ), url('../img/fondo1.png') ; */
         height: 100%;
         width: 100%;
@@ -66,9 +67,9 @@
         user-select: none;
         display: initial !important;
         height: 90%;
-        width: 22%;
-        background-color: #F3F3F3;
-        margin-left: 5%;
+        width: 22.1%;
+        background-color: #3E73D5;
+        margin-left: 5.2%;
         position: absolute;
         display: flex !important;
         justify-content: center;
@@ -79,13 +80,20 @@
         display: flex;
         align-items: center;
         margin-top: 4px;
-        width: 98%;
-        height: 9%;
-        border-bottom: 1px solid #BBBBBB;
+        width: 96%;
+        height: 7%;
+        border-bottom: 2px solid #BBBBBB;
+        background-color: #3E73D5;
+        
+        border-right: 2px solid #BBBBBB;
+        
+        outline-color: white;
     }
 
+  
     #ourUser-picture{
         margin-left: 5%;
+        
         display: flex;
         align-items: center;
         justify-content: center;
@@ -118,8 +126,14 @@
         align-items: center;
         justify-content: center;
         width: 60%;
+        
         height: 60%;
     }
+.row{
+    margin-top: 30px;
+    color: blue;
+    
+}
 
     #ajustes{
         width: 20px;
@@ -134,9 +148,12 @@
     }
 
     #search-bar{
-        width: 98%;
-        height: 9%;
-        background-color: #EEEEEE;
+        width: 96%;
+        height: 10%;
+        
+       
+        background-color:#FAFAFA;
+        outline-color:white; 
         display: flex ;
         align-items: center;
         justify-content: center;
@@ -146,24 +163,25 @@
         border-top-left-radius: 10px;
         border-bottom-left-radius: 10px;
         width: 15%;
-        height: 70%;
+        height: 45%;
         margin-left: 3%;
-        background-color: white;
+        background-color:white;
         display: flex;
         align-items: center;
         justify-content: center;
+        border: 1px solid grey;
     }
 
     #search-img>img{
-        width: 60%;
-        height: 60%;
+        width: 30px;
+        height: 30px;
         cursor: pointer;
     }
 
     #search-content{
         border-left: 1px solid #BBBBBB;
         width: 60%;
-        height: 70%;
+        height: 45%;
         margin-right: 3%;
         background-color: white;
         display: flex;
@@ -171,6 +189,10 @@
         align-items: center;
         border-top-right-radius: 10px;
         border-bottom-right-radius: 10px;
+        
+        border: 1px solid grey;
+
+  
     }
 
     #search-input{
@@ -186,9 +208,9 @@
 
     #IniciarConversacion{
         cursor: pointer;
-        width: 12%;
-        height: 60%;
-        background-color: white;
+        width: 40px;
+        height: 40px;
+      
         border-radius: 50%;
         display: inline-block;
         display: flex;
@@ -202,25 +224,28 @@
     }
 
     #Configuracion-web{
-        width: 90%;
-        height: 86%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        background-color: #FAFAFA;
-        
-        padding: 10px;
-        text-align: center;
-    }
-
-    #BusquedaContactos{
         overflow-y: scroll;
-        width: 98%;
-        height: 75%;
+        width: 96%;
+        height: 91.5%;
+        margin-bottom: 10px;
         background-color: #FAFAFA;
         display: flex;
         justify-content: flex-start;
         flex-direction: column;
+        color:#1E1E1E;
+        text-align: center;
+        
+    }
+
+    #BusquedaContactos{
+        overflow-y: scroll;
+        width: 96%;
+        height: 78.5%;
+        background-color: #FAFAFA;
+        display: flex;
+        justify-content: flex-start;
+        flex-direction: column;
+        margin-bottom: 10%;
     }
 
     .User_settings_Web{
@@ -233,7 +258,19 @@
         align-items: center;    
         flex-direction: column;
     }
-
+    #presentarimagen{
+        margin-top: 10%;
+       margin-right: 10%;
+        width: 40px;
+        height: 40px;
+        background-color: red;
+    }
+ #Contacts-tittle{
+     text-align: center;
+     background-color: #FAFAFA;
+     width: 96%;
+    
+ }
     .Nuevos_Datos_Perfil_Web{
         margin-left: 26%;
         display: flex;
@@ -245,7 +282,7 @@
     }
 
     .Cerrar_Perfil_Web{
-        margin-top: 26%;
+      margin-bottom: 10%;
         margin-left: 26%;
         display: flex;
         align-items: center;
@@ -263,6 +300,7 @@
         border-radius: 5px;
         background-color: red;
         color: white;
+        position: relative;
     }
 
     #NewUser-input{
@@ -298,6 +336,14 @@
         border: none;
         border-radius: 5px;
     }
+    .Settings_Picture{   
+        margin-top: 30px; 
+        cursor: pointer;
+        width: 170px;;
+        height: 35px;
+        border: none;
+        border-radius: 5px;
+    }
 
     .Settings_Password{
         margin-top: 30px;
@@ -310,19 +356,14 @@
     #Upload{
         margin-left: 10px;
         color: transparent;
-        width: auto;
-      align-content: center;
-      justify-items: center;
-      flex-wrap: wrap;
+        width: 90%;
+      align-items: center;
+      justify-content: center;
+      
        display: flex;
-       flex-direction: column;
-       
+      flex-direction: column;
     }
-    #Upload-input{
-        margin-bottom: 10%;
-        margin-left: 33%;
-    }
-
+   
     #Perfil_Image{        
         padding: 10px;
         width: 60px;
@@ -337,12 +378,15 @@
 
     #message-content{
         overflow-y: scroll;
-        width: 98%;
-        height: 80%;
+        width: 96%;
+        height: 81.5%;
+        margin-bottom: 10px;
         background-color: #FAFAFA;
         display: flex;
         justify-content: flex-start;
         flex-direction: column;
+        color:#1E1E1E;
+        
     }
 
 
@@ -356,15 +400,16 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        border: #30499B
+        border: #3E73D5;
     }
-    #message-content :hover{background: #30499B;}
+    #message-content :hover{background: #CECECE;}
 
     #AddUser{
         width: 56px;
         height: 56px;
         cursor: pointer;
-        margin-left: 53%;
+        margin-left: 46%;
+        margin-right: 10%;
     }
 
     #AddUser-img{
@@ -413,7 +458,7 @@
 }
 
 #aceptarorechazar>{
- width: 
+  
  display: flex;
  flex-direction: row;
    
@@ -482,10 +527,24 @@
         justify-content: center;
     }
   #Letrero{
-    width: 200px;
-    height: 150px;
-    margin-right: 30%;
+   font-size: 90px;
+    margin-right: 50%;
+    position: absolute;
+    font-family: 'Lobster', cursive;
+    color: white;
+    margin-bottom:5%;
+    
+   
   }
+  #subLetrero{
+      margin-top:10%;
+    font-size: 60px;
+     margin-right: 20%;
+     font-family: 'Lobster', cursive;
+     color: #3E73D5;
+     
+    
+   }
     #Sticky-Input{  
         text-align: center;
         margin-left: 4.25%;
@@ -542,7 +601,7 @@
         -moz-user-select: none;
         -ms-user-select: none;
         user-select: none;
-        background-color: #F3F3F3;
+        background-color: #3E73D5;
         width: 100%;
         height: 8%;
         top: 0px;
@@ -552,6 +611,7 @@
         justify-content: start;
         margin-bottom: 400px;
         position: absolute;    
+        color: white;
     }
 
     .pBack{

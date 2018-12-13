@@ -18,7 +18,7 @@
         
         <div class="ourUser">
            <div id="ourUser-picture">
-                <div id="backPict" style="display:none;"><img src="img/back.svg"  id="back-web"></div>
+                <div id="backPict" style="display:none;"><img src="img/back.png"  id="back-web"></div>
                 <div id="userPict"><img src="img/user.svg" ></div>
            </div>
            <div id="ajustes">
@@ -53,11 +53,7 @@
                     <img src="img/user.svg"  id="User_Settings_Img">
                    
                 </div>
-                <div id="Upload">
-                    <form enctype="multipart/form-data" action="" method="POST">
-                        <input id="Upload-input"  type="file"  value="Subir Foto"/>
-                    </form> 
-                </div>
+               
                 <div id="Datos_User">
                     <div id="User_Name_Settings">
                         <p>User</p>
@@ -72,6 +68,23 @@
             <div class="Nuevos_Datos_Perfil_Web">
                     <button class="Settings_User" >New Username</button>
                 <button class="Settings_Password">New Password</button>
+              <br>
+
+               
+                <div class="row">
+                    <br>
+                        <div class="form-group col-md-4">
+                            <label class="btn btn-default btn-file">
+                                Subir Imagen<input style="display: none" name="logo" type="file">
+                            </label>
+                            <span class="help-block"></span>
+                        </div>
+                     
+                        <div id="container-logo" class="pull-right" style="display: none">
+                            <img class="img-responsive" width="200"  id="logo-img" src="#" />
+                        </div>
+                    </div>
+                
             </div>
             <div class="Cerrar_Perfil_Web">
                 <button id="CerrarSesion"> Log Out </button>
@@ -200,7 +213,7 @@
                 <input type="text">
             </div>
 
-            <div class="pic"><img src="img/send.svg"></div>
+            <div class="pic"><img src="img/send.svg" id="sendmensaje"></div>
         </div>
 
         <div class="main_container" id="chats">
