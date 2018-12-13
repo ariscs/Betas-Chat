@@ -54,10 +54,9 @@
                    
                 </div>
                 <div id="Upload">
-                        <form enctype="multipart/form-data" action="" method="POST">
-                            <input id="Upload-input"  type="file"  value="Subir Foto"/>
-                           
-                            </form> 
+                    <form enctype="multipart/form-data" action="" method="POST">
+                        <input id="Upload-input"  type="file"  value="Subir Foto"/>
+                    </form> 
                 </div>
                 <div id="Datos_User">
                     <div id="User_Name_Settings">
@@ -81,15 +80,13 @@
         </div>
 
         <div id="BusquedaContactos" style="display:none"> 
-                <% if (data[0].idUsuarioAgregado) { %>
-                    <% for(let i = 0; i < data.length; i++) { %>
-                        <div class="message-in" data-id-contact="<%= data[i].idUsuarioAgregado %>"> 
+                        <!-- <div class="message-in"> 
                            <div id="img-in">
                                 <div id="userInPict"><img src="img/user.svg" ></div>
                            </div>
                            <div id="datos-in-solicitud">
                                <div id="name-in">
-                                   <h3 id="<%= data[i].idUsuarioAgregado %>"><%= data[i].nombreContacto %></h3>
+                                   <h3>Prototipo</h3>
                                </div>
                                
                            </div>
@@ -100,16 +97,9 @@
                               
                                <div id="decline">
                                     <img src="img/Close.png" id="aceptarorechazar-buttons">
-                               </div>
-                                
-                              
-                               
-                               </div>
-                        </div>
-                    <% } %>
-                    <% } else { %>
-                        <h3>No tienes amigos agregados</h3>
-                    <% } %>
+                               </div>   
+                            </div>
+                        </div> -->
         </div>
          <div id="message-content">
             <% if (data[0].idUsuarioAgregado) { %>
@@ -143,21 +133,12 @@
     <div class="container">
 
     <div class="top_banner-web" style="display: none;">
-            <div class="pBack"><img src="img/back.svg"></div>
-            <div class="pPic"><img src="img/user.svg" class="userPic"></div>
-            <div class="pInfo" id="myUserName" data-myUser="<%= data[0].userName %>">
-                <h1><%= data[0].userName %></h1>
-            </div>
+        <div class="pBack"><img src="img/back.svg"></div>
+        <div class="pPic"><img src="img/user.svg" class="userPic"></div>
+        <div class="pInfo" id="myUserName" data-myUser="<%= data[0].userName %>">
+            <h1><%= data[0].userName %></h1>
         </div>
-
-        <div class="top_banner-web"  style="display: none;">
-            <div class="pBack"><img src="img/back.svg"></div>
-            <div class="pPic"><img src="img/user.svg" class="userPic"></div>
-            <div class="pInfo" id="myUserName" data-myUser="<%= data[0].userName %>">
-                <h1><%= data[0].userName %></h1>
-            </div>
-        </div>
-
+    </div>
 
         <!-- vista movil -->
         <div class="top_banner">

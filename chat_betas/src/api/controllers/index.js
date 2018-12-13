@@ -13,7 +13,7 @@ module.exports = controller = {
         req.getConnection((err, connection) => {
             if(err) throw err;
             const idUser = req.session.passport.user.idUsuario;
-            connection.query('SELECT * FROM `contacto` WHERE `idUsuario` = ?', [idUser], (err, result) => {
+            connection.query('SELECT * FROM `contacto` WHERE `idUsuario` = ? AND `estadoContacto` = ?', [idUser, '1'], (err, result) => {
                 if(err) throw err;
                 if(result.length == 0){
                     result[0] = {idUsuario: idUser, userName: req.session.passport.user.nombreUsuario}
@@ -71,6 +71,47 @@ module.exports = controller = {
         })
     },
 
+    updateContactUser: (req, res) => {
+        req.getConnection((err, connection) => {
+            connection.query('UPDATE contacto SET `nombreContacto` = ? WHERE `nombreContacto` = ?', [req.body.newUser, req.body.lastUser], (err, result) => {
+                res.json({status: 'OK'})
+            })
+        })
+    },
+    
+    addNewUser: (req, res) => {
+        req.getConnection((err, connection) => {
+            connection.query('UPDATE contacto SET `estadoContacto` = ? WHERE `idUsuarioAgregado` = ? AND `idUsuario` = ?', ['1' , req.body.idUsuarioAgregado, req.body.idUsuario], (err, result) => {
+                res.json({status: 'OK'})
+            })
+        })
+    },
+
+    getPendingFriends: (req, res) => {
+        req.getConnection((err, connection) => {
+            connection.query('SELECT * FROM `contacto` WHERE `idUsuario` = ? AND `estadoContacto` = ?', [req.session.passport.user.idUsuario, '0'], (err, result) => {
+                if (err) throw err;
+                res.json(result);
+            })
+        })
+    },
+
+    declineContact: (req, res) => {
+        req.getConnection((err, connection) => {
+            connection.query('DELETE FROM `contacto` WHERE `idUsuario` = ? AND `idUsuarioAgregado` = ?', [req.body.idUsuarioAgregado, req.body.idUsuario], (err, result) => {
+                if (err) throw err;
+                connection.destroy();
+            })
+        });
+
+        req.getConnection((err, connection) => {
+            connection.query('DELETE FROM `contacto` WHERE `idUsuario` = ? AND `idUsuarioAgregado` = ?', [req.body.idUsuario, req.body.idUsuarioAgregado], (err, result) => {
+                if (err) throw err;
+                connection.destroy();
+            })
+        });
+    },
+
     updatePassUser: (req, res) => {
         const salt = bcrypt.genSaltSync(10);
         const hash = bcrypt.hashSync(req.body.password, salt);
@@ -92,7 +133,22 @@ module.exports = controller = {
             if(err) throw err;
             connection.query('INSERT INTO `contacto` SET ?', data, (err, result) => {
                 connection.destroy();
-                res.json({status: 'OK'});
+            })
+        })
+
+        const data1 = {
+            estadoContacto: '0',
+            nombreContacto: req.session.passport.user.nombreUsuario,
+            idUsuarioAgregado: req.session.passport.user.idUsuario,
+            idUsuario: req.body[0].idUsuario
+        }
+        console.log(req.session.passport.user.nombreUsuario);
+
+        req.getConnection((err, connection) => {
+            if(err) throw err;
+            connection.query('INSERT INTO `contacto` SET ?', data1, (err, result) => {
+                connection.destroy();
+                res.json({status: 'OK'})
             })
         })
     },

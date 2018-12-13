@@ -55,7 +55,14 @@ router.put('/api/update-pass-user', middleware.authorization, controller.updateP
 router.post('/api/verify-friend', middleware.authorization, controller.verifyFriend);
 router.put('/api/send-request-friend', middleware.authorization, controller.requestToFriend)
 router.delete('/api/end-session', middleware.authorization, controller.endSession);
-//TEESTT
+router.put('/api/update-user-contact', middleware.authorization, controller.updateContactUser);
+router.post('/api/add-new-friend', middleware.authorization, controller.addNewUser);
+router.get('/api/get-pending-friends', middleware.authorization, controller.getPendingFriends);
+router.delete('/api/delete-user-request', middleware.authorization, controller.declineContact);
+
+router.get('*', (req, res) => {
+    res.send('<h1>No hay nada interesante que ver aquí</h1>')
+})
 
 // router.post('/imagen', multer(multerConf).single('photo'), controller.uploadImg);
 

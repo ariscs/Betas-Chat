@@ -1,118 +1,13 @@
 //COSNTANTS
-const profileInfoUser = document.getElementsByClassName('profile_info')[0];
-const btnSaveDataProfile = document.getElementsByClassName('buttonConfig')[3];
-const btnChangePassword = document.getElementsByClassName('buttonConfig')[2];
-const passwordInputs = document.getElementsByClassName('newPassword_inputs')[0];
-const btnChangePasswordConfig = document.getElementsByClassName('buttonConfig_two')[0];
 const btnEndSession = document.getElementById('CerrarSesion');
+const settingsUser = document.getElementsByClassName('Settings_User')[0];
+const settingsPassword = document.getElementsByClassName('Settings_Password')[0];
 
-let btnChangePasswordPress = false;
+//GLOBALS
+var myLastUserName;
 
 //FUNCTIONS
-const dataProfile = () => {
-    fetch('/api/get-data-user', {
-        method: 'get',
-        headers: {
-            'Accept': 'application/json',
-            'Content-Type': 'application/json'
-        },
-    })
-    .then(res => res.json())
-    .then(response => {
-        profileInfoUser.children[0].children[0].value = response[0].nombreUsuario
-        profileInfoUser.children[0].children[0].innerText = response[0].nombreUsuario
-        profileInfoUser.children[1].children[0].innerHTML = response[0].correoUsuario
-    })
-}
-
-const updateUserName = () => {
-
-    const data = getUserName();
-    fetch('/api/update-data-user', {
-        method: 'put',
-        headers: {
-            'Accept': 'application/json',
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(data)
-    })
-    .then(res => res.json())
-    .then(response => {
-        // profileInfoUser.children[0].children[0].value = response[0].nombreUsuario
-        // profileInfoUser.children[1].children[0].innerHTML = response[0].correoUsuario
-        console.log(response);
-    })
-}
-
-const getUserName = () => {
-    const data = {}
-
-    const userName = profileInfoUser.children[0].children[0].value
-    if(userName.length > 3){
-        if(userName != '') {
-                data.userName = userName;
-                return data;
-            } 
-          else {
-            alert('La contraseña no puede estar vacia');
-        }
-    } else {
-        alert('El nombre de usuario es muy corto');
-    }
-}
-
-const updatePassUser = () => {
-    const data = getPassUser();
-    console.log(data);
-    if(data){
-        fetch('/api/update-pass-user', {
-            method: 'put',
-            headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(data)
-        })
-        .then(res => res.json())
-        .then(response => {
-            alert('La contraseña ha sido modificada');
-            console.log(response)
-        })
-    }
-}
-
-const getPassUser = () => {
-    const passwordIn = passwordInputs.children[0];
-    const passwordInVal = passwordInputs.children[1];
-
-    const data = {};
-
-    if(passwordIn.value.length > 3){
-        if(passwordIn.value != '') {
-            if(passwordIn.value === passwordInVal.value){
-                data.password = passwordIn.value;
-                return data;
-            } else {
-                alert('Las contraseñas no coinciden')
-            }
-        } else {
-            alert('La contraseña no puede estar vacia')
-        }
-    } else {
-        alert('La contraseña es demasiado corta');
-    }
-}
-
-const changeToTrueOrFalse = () => {
-    if(btnChangePasswordPress){
-        btnChangePasswordPress = false;
-    } else {
-        btnChangePasswordPress = true;
-    }
-}
-
 const endSession = () => {
-    alert('xD')
     fetch('/api/end-session', {
         method: 'delete',
         headers: {
@@ -126,9 +21,96 @@ const endSession = () => {
     })
 }
 
+const updateUser = () => {
+    const newUser = document.getElementById('NewUser-input').value;
+    if(newUser == ''){
+        alert('El usuario no puede estar vacio');
+    } else {
+        if(newUser.length <= 2){
+            alert('El nombre de usuario es demasiado corto')
+        }
+        else {
+            myLastUserName = document.getElementById('myUserName').getAttribute('data-myuser');
+            fetch('/api/update-data-user', {
+                method: 'put',
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({userName: newUser})
+            })
+            document.getElementById('myUserName').setAttribute('data-myuser', newUser)
+            document.getElementById('myUserName').children[0].innerText = newUser
+            document.getElementById('user-profile').innerHTML = `<p id="user-profile">Usuario: ${newUser}</p>`
+            alert('Tu usario ha sido cambiado con exito');
+            fetch('/api/update-user-contact', {
+                method: 'put',
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({newUser, lastUser: myLastUserName})
+            })
+        }
+    }
+}
+
+const updatePassword = () => {
+    const newPass = document.getElementById('Newpass-input').value
+    if(newPass == ''){
+        alert('La contraseña no puede estar vacia')
+    } else {
+        if(newPass.length <= 6){
+            alert('La contraseña es demasiado corta');
+        } else {
+            fetch('/api/update-pass-user', {
+                method: 'put',
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({password: newPass})
+            })
+            alert('Tu contraseña ha sido actualizada correctamente')
+        }
+    }
+
+}
+
+const activeFetchUser = () => {
+    setTimeout(() => {
+        //CONSTANTS
+        const saveButton = document.getElementById('SaveButton');
+
+        //LISTENERS
+        saveButton.addEventListener('click', updateUser)
+    
+    }, 100)
+}
+
+const activeFetchPass = () => {
+    setTimeout(() => {
+        //CONSTANTS
+        const saveButton = document.getElementById('SaveButton');
+
+        //LISTENERS
+        saveButton.addEventListener('click', updatePassword)
+    }, 100)
+}
+
+const getDataUser = () => {
+    fetch('/api/get-data-user', {
+        method: 'get'
+    }).then(res => res.json())
+    .then(resp => {
+        myLastUserName = resp[0].nombreUsuario
+        document.getElementById('User_Name_Settings').innerHTML = `<p id="user-profile">Usuario: ${resp[0].nombreUsuario}</p>`
+        document.getElementById('User_email_Settings').innerHTML = `<p id="email-profile">Correo: ${resp[0].correoUsuario}</p>`
+    })
+}
+
 //LISTENERS
-document.addEventListener('DOMContentLoaded', dataProfile);
-btnSaveDataProfile.addEventListener('click', updateUserName);
-btnChangePassword.addEventListener('click', changeToTrueOrFalse);
-btnChangePasswordConfig.addEventListener('click', updatePassUser);
-btnEndSession.addEventListener('click', endSession)
+btnEndSession.addEventListener('click', endSession);
+settingsUser.addEventListener('click', activeFetchUser);
+settingsPassword.addEventListener('click', activeFetchPass);
+document.addEventListener('DOMContentLoaded', getDataUser);

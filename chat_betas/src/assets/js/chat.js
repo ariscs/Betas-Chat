@@ -216,6 +216,7 @@ const getLastMessage = () => {
             if(userFriends[i].idUserFriend != '' && userFriends[i].username != ''){
                 haveUser = true
                 addIn = document.getElementById(userFriends[i].idUserFriend)
+
                 addIn.parentNode.nextElementSibling.children[0].innerHTML = userFriends[i].msgContenido
             } else {
                 userFriends.pop();
@@ -271,6 +272,7 @@ const sendRequestToFriend = () => {
                     }
                     getAllId();
                 })
+                response[0].idUsuarioAmigo = myId;
                 response[0].nombreUsuario = document.getElementById('myUserName').getAttribute('data-myUser')
                 socket.emit('addNewUser', response)
             }
@@ -278,9 +280,44 @@ const sendRequestToFriend = () => {
     })
 }
 
+const getPendingFriend = () => {
+    fetch('/api/get-pending-friends', {
+        method: 'get'
+    }).then(res => res.json())
+    .then(resp => {
+        const messageContent = document.getElementById('BusquedaContactos');
+        for(let i = 0; i < resp.length; i++) {
+            messageContent.innerHTML += `
+            <div class="message-in" data-id-contact="${resp[i].idUsuarioAgregado}"> 
+                <div id="img-in">
+                    <div id="userInPict"><img src="img/user.svg" ></div>
+                </div>
+                <div id="datos-in-solicitud">
+                    <div id="name-in">
+                        <h3 id="${resp[i].idUsuarioAgregado}">${resp[i].nombreContacto}</h3>
+                    </div>
+                </div>
+                <div id="aceptarorechazar">
+                    <div id="accept">
+                        <img src="img/accept.png" id="aceptarorechazar-buttons" >
+                    </div>
+                    <div id="decline">
+                        <img src="img/Close.png" id="aceptarorechazar-buttons">
+                    </div>
+                </div>
+            </div>
+            `
+            document.getElementById('accept').addEventListener('click', acceptContact);
+            document.getElementById('decline').addEventListener('click', declineContact);
+        }
+        console.log(resp);
+    })
+}
+
 //LISTENERS
 document.addEventListener('DOMContentLoaded', getAllId);
 document.addEventListener('DOMContentLoaded', getLastMessage);
+document.addEventListener('DOMContentLoaded', getPendingFriend)
 document.addEventListener('click', sendRequestToFriend);
 searchInput.addEventListener('input', showUsers);
 
@@ -341,22 +378,70 @@ socket.on('message', (data) => {
 //         }, time);
 //     }
 // })
-
+var dataSocket;
 socket.on('addNewUser', (data) => {
-    console.log(data)
-    const messageContent = document.getElementById('message-content');
+    dataSocket = data;
+    const messageContent = document.getElementById('BusquedaContactos');
     messageContent.innerHTML += `
-    <div class="message-in" data-id-contact="${data[0].idUsuario}"> 
+    <div class="message-in" data-id-contact="${data[0].idUsuarioAmigo}"> 
         <div id="img-in">
             <div id="userInPict"><img src="img/user.svg" ></div>
         </div>
-        <div id="datos-in">
+        <div id="datos-in-solicitud">
             <div id="name-in">
-                <h3 id="${data[0].idUsuario}">${data[0].nombreUsuario}</h3>
+                <h3 id="${data[0].idUsuarioAmigo}">${data[0].nombreUsuario}</h3>
             </div>
-            <div id="little-text">
-                <p><strong>Te ha añadido como amigo</strong></p>
+        </div>
+        <div id="aceptarorechazar">
+            <div id="accept">
+                <img src="img/accept.png" id="aceptarorechazar-buttons" >
+            </div>
+            <div id="decline">
+                <img src="img/Close.png" id="aceptarorechazar-buttons">
             </div>
         </div>
     </div>
-    `})
+    `
+    document.getElementById('accept').addEventListener('click', acceptContact)
+    document.getElementById('decline').addEventListener('click', declineContact);
+})
+
+const acceptContact = (e) => {
+    const idFriend = e.target.parentNode.parentNode.children[1].children[0].children[0];
+    const data = {
+        idUsuario: myId,
+        idUsuarioAgregado: idFriend.id,
+        nombreContacto: idFriend.innerText
+    }
+    fetch('api/add-new-friend', {
+        method: 'post',
+        body: JSON.stringify(data),
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        }
+    })
+    setTimeout(() => {
+        location.replace('/')
+    }, 100)
+}
+
+const declineContact = (e) => {
+    const idFriend = e.target.parentNode.parentNode.children[1].children[0].children[0];
+    const data = {
+        idUsuario: myId,
+        idUsuarioAgregado: idFriend.id,
+        nombreContacto: idFriend.innerText
+    }
+    fetch('api/delete-user-request', {
+        method: 'delete',
+        body: JSON.stringify(data),
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        }
+    })
+    setTimeout(() => {
+        location.replace('/')
+    }, 100)
+}
