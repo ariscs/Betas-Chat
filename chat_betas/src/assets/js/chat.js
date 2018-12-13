@@ -100,11 +100,11 @@ const getMessages = (idContact, myId) => {
             } else {
                 containerChats.innerHTML += `
                 <div class="out" style="display: none;">
-                    <div class="out_p">
-                        <p>${response[i].msgContenido}</p>
-                    </div>
                     <div class="out_hour">
                         <p>${response[i].msgHora}</p>
+                    </div>
+                    <div class="out_p">
+                        <p>${response[i].msgContenido}</p>
                     </div>
                 </div>`
             }
@@ -122,11 +122,11 @@ const sendMessageToContact = (e) => {
         const date = new Date().toTimeString().replace(/.*(\d{2}:\d{2}:\d{2}).*/, "$1")
         chatPersonal.innerHTML += `
         <div class="out" style="display: none;">
-            <div class="out_p">
-                <p>${message}</p>
-            </div>
             <div class="out_hour">
                 <p>${date}</p>
+            </div>
+            <div class="out_p">
+                <p>${message}</p>
             </div>
         </div>`
     
@@ -336,11 +336,11 @@ socket.on('message', (data) => {
     if(chats.getAttribute('data-id-contact') == data.idPersonal){
         chats.innerHTML += `
         <div class="out" style="display: none;">
-            <div class="out_p">
-                <p>${data.message}</p>
-            </div>
             <div class="out_hour">
                 <p>${data.date}</p>
+            </div>
+            <div class="out_p">
+                <p>${data.message}</p>
             </div>
         </div>`
     }

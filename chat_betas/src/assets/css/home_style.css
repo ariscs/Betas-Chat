@@ -701,6 +701,10 @@
     .in_hour>p{
         font-size: 12px;
         color: #707070;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        max-width: 40px;
     }
 
     .out{
@@ -727,6 +731,9 @@
         padding: 10px;
         height: 93%;
         width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
     }
 
     .out_p>p{
@@ -746,6 +753,10 @@
     .out_hour>p{
         font-size: 12px;
         color: #F3F3F3;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        max-width: 40px;
     }
 
     .input_banner-web{
@@ -863,10 +874,9 @@
         
     }
 
-
     .mandar{
         border: none;
-        margin-top: 20%;
+        margin-top: 15%;
         height: 35px;
         width: 105px;
         background-color: white;

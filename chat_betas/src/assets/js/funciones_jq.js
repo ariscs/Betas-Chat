@@ -15,7 +15,7 @@ $( ".toggle-switch" ).click(function() {
 		$('#Contraseña').replaceWith('<input type="password" class="inputDatos" id="MandarContraseña" placeholder="Contraseña">');
 	}	
 	if($("#RepetirContraseña").length){
-		$('#MandarContraseña').before('<input type="text" class="inputDatos" id="Username" placeholder="Usuario">');
+		$('#MandarContraseña').before('<input type="text" class="inputDatos" id="RegistroNombreUsuario" placeholder="Usuario">');
 	}
 	else
 	{
